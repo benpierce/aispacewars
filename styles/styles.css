@@ -1,0 +1,47 @@
+h1 
+{ 
+    color: #484848; 
+    font-family: 'Trocchi', serif; 
+    font-size: 30px; 
+    font-weight: normal; 
+    line-height:30px; 
+    margin-top: 5px; 
+    margin-bottom: 5px;
+}
+
+p { 
+    color: #606060; 
+    font-family: 'Helvetica Neue', sans-serif; 
+    font-size: 14px; 
+    line-height:14px; 
+    margin-top: 0px; 
+}
+
+div
+{
+    font-family: Calibri; 
+    color: #606060
+}
+
+div.info 
+{
+    border: solid 1px #808080; 
+    float:left; 
+    width:400px; 
+    height: 578px; 
+    margin-left: 10px; 
+    padding: 10px;
+}
+
+div.info-console 
+{
+    color: #484848; 
+    font-family: 'Trocchi', serif; 
+    font-size: 20px; 
+    font-weight: normal;
+}
+
+#world 
+{
+    float: left;
+}

@@ -1,0 +1,103 @@
+[
+    {
+        "tick": 1,
+        "object_state": 
+        [
+            {
+                "id": "ship1",
+                "x": 350,
+                "y": 530,
+                "r": 0
+            },
+            {
+                "id": "ship2",
+                "x": 450,
+                "y": 530,
+                "r": 0
+            }
+        ]	
+    },
+    {
+        "tick": 2,
+        "object_state": 
+        [
+            {
+                "id": "ship1",
+                "x": 350,
+                "y": 520,
+                "r": 10
+            },
+            {
+                "id": "ship2",
+                "x": 450,
+                "y": 510,
+                "r": 0
+            }
+        ]	
+    },
+    {
+        "tick": 3,
+        "object_state": 
+        [
+            {
+                "id": "ship1",
+                "x": 350,
+                "y": 510,
+                "r": 20
+            },
+            {
+                "id": "ship2",
+                "x": 450,
+                "y": 490,
+                "r": 0
+            }
+        ]
+    },
+    {
+        "tick": 4,
+        "object_state": 
+        [
+            {
+                "id": "ship1",
+                "x": 350,
+                "y": 500,
+                "r": 30
+            },
+            {
+                "id": "ship2",
+                "x": 450,
+                "y": 470,
+                "r": 0
+            }
+        ]
+    },
+    {
+        "tick": 5,
+        "object_state": 
+        [
+            {
+                "id": "ship1",
+                "x": 350,
+                "y": 490,
+                "r": 40
+            },
+            {
+                "id": "ship2",
+                "x": 450,
+                "y": 450,
+                "r": 0
+            }
+        ],
+        "actions":
+        [
+            {
+                "type": "message",
+                "text": "Alien Team Wins!"
+            },
+            {
+                "type": "explosion",
+                "id": "ship1"
+            }
+        ]
+    }					
+]

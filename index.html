@@ -1,0 +1,636 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>AI Space War</title>
+  <meta name="author" content="Benjamin Pierce">
+  <link rel="shortcut icon" href="#" />
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+  <script src="pixi/pixi.min.js"></script>
+<body>
+  <h1>AI Space Wars</h1>	
+  <p>Written by Benjamin Pierce (<a href="https://www.linkedin.com/in/ben-pierce-toronto/" target="_blank">LinkedIn</a>)</p>
+
+  <div id="world">	
+  </div>
+  <div class="info">
+	  <div class="info-console">Simulation Console</div>
+	  <br/> 
+	  <div>
+		<label for="aitype">AI Type:</label>
+
+		<select name="aitype" id="aitype">
+		  <option value="1">Random</option>
+		  <option value="2">Tree Search</option>
+		  <option value="3">Tree Search (Black) vs Random (Grey)</option>
+		  <option value="4">Monte Carlo (Black) vs Tree Search (Grey)</option>
+		</select>
+	  </div>
+	  <br/>
+	  <div>
+		<label for="simulation">Simulation #:</label>
+
+		<select name="simulation" id="simulation">
+		  <option value="1">1</option>
+		  <option value="2">10</option>
+		  <option value="3">100</option>
+		  <option value="4">1000</option>
+		</select>		  
+	  </div>
+	  <br/>
+	  <div>
+		<label for="speed">Simulation Speed #:</label>
+
+		<select name="speed" id="speed">
+		  <option value="5">Normal</option>
+		  <option value="15">1/2 Speed</option>
+		  <option value="3">2x Speed</option>		  
+		  <option value="1">5x Speed</option>
+		</select>		  
+	  </div>
+	  <br/>
+	  <div>
+		<label for="showGrid">Show Grid:</label>
+
+		<input type="checkbox" name="showGrid" id="showGrid" unchecked onClick="toggleGrid();">
+	  </div>	
+	  <br/>
+	  <div>
+		  <input type="button" name="run" id="run" value="Run Simulation" onClick="run();">
+		  <input type="button" name="pause" id="pause" value="Pause" onClick="pause(this);">
+	  </div>	
+	  <br/>
+	  <hr/>
+	  <br/>
+	  <div id="debuginfo" style="display:none">
+		<div>
+			<b>Humans (<span id='humanai'></span>)</b>: <span id='humanships'></span> remaining
+		</div>
+		<br/>
+		<div>
+			<b>Aliens (<span id='alienai'></span>)</b>: <span id='alienships'></span> remaining
+		</div>
+		<br/>
+		<div id="additionalinfo">
+		</div>
+	  </div>	  
+  </div>
+
+  <script type="text/javascript">
+    let type = "WebGL"
+    if(!PIXI.utils.isWebGLSupported()){
+      type = "canvas"
+    }
+
+    PIXI.utils.sayHello(type)
+	
+	//Create a Pixi Application
+	let app = new PIXI.Application({width: 800, height: 600, backgroundColor: 0x1099bb, antialias: true});
+	gameView = document.getElementById("world")
+
+	//Add the canvas that Pixi automatically created for you to the HTML document
+	gameView.appendChild(app.view);	
+
+	let textStyle = new PIXI.TextStyle({
+		fontFamily: "Arial",
+		fontSize: 36,
+		fill: "white",
+		stroke: '#ff3300',
+		strokeThickness: 4,
+		dropShadow: true,
+		dropShadowColor: "#000000",
+		dropShadowBlur: 4,
+		dropShadowAngle: Math.PI / 6,
+		dropShadowDistance: 6
+		});
+
+	let paused = false;
+	let ship;
+	let ship2;
+	let message = new PIXI.Text("", textStyle);		
+	let tickStep;
+	let currentTick = 0;
+	let worldTick = 0;
+	let gameObjects = {};
+	let explosion;
+	let replay;
+	let STARTUP_TIME = 4000;	// How long we want the simulation startup to take
+	let countdownStart;			// When did the countdown start?
+	let lastCountdownCheck;		// Last countdown check for our simulation method
+	let starting;				// Are we in the start loop?
+	let explosions = [];
+	let smokes = [];
+	let lastCountdownSeconds = 0;
+	let showGrid = false;
+	let grid = new PIXI.Container();
+
+	//load an image and run the 'setup' function when it's done
+	PIXI.loader
+		.add([
+			"images/alienship.png",
+			"images/humanship.png",
+			"images/space3.png",
+			"images/explosion.png",
+			"images/smoke.png",
+			"images/lazer_blue.png",
+			"images/lazer_red.png",
+			"images/missile.png",
+			"sfx/explosion1.wav",
+			"sfx/explosion2.wav",
+			"sfx/explosion3.wav",
+			"sfx/beep.wav",
+			"sfx/ding.wav",
+			'sfx/laserhuman.wav',
+			'sfx/laseralien.wav',
+			'sfx/missile1.wav',
+			'sfx/missile2.wav',
+			"replays/replay1.json",
+			"replays/replay2.json"
+		])
+		.on("progress", loadProgressHandler)
+		.load(waitScreen);
+	
+	function toggleGrid() {
+		var checkBox = document.getElementById("showGrid");
+		showGrid = checkBox.checked;
+	}
+
+	function clearStage() 
+	{
+		// Remove all sprites
+		for (var i = app.stage.children.length - 1; i >= 0; i--) {	app.stage.removeChild(app.stage.children[i]);};
+
+		// Remove all game objects
+		gameObjects = {};
+	}
+
+	// Display a loading message until all assets are loaded
+	function loadProgressHandler(loader, resource) 
+	{
+		displayMessage("Loading...");	
+	}
+
+	// Initial screen telling users to run the simulation to begin.
+	function waitScreen() 
+	{
+		// Background
+		bg = new PIXI.Sprite(PIXI.loader.resources["images/space3.png"].texture);
+		app.stage.addChild(bg);	
+
+		// Display Message
+		displayMessage("Run Simulation to Begin");
+
+		// Start the game loop		
+		app.ticker.add(delta => gameLoop(delta))	
+	}	
+
+	function run() 
+	{
+		clearStage();
+
+		// Background
+		bg = new PIXI.Sprite(PIXI.loader.resources["images/space3.png"].texture);
+	  
+		// Load simulation data
+		replay = PIXI.loader.resources['replays/replay2.json'].data; 	 
+
+		// Load explosion animation
+		explosion = getExplosionTextures();
+
+		// Load smoke animation
+		smoke = getSmokeTextures();
+
+		//Add the cat to the stage
+		app.stage.addChild(bg);
+
+		// Draw the grid
+		drawGrid();
+						
+		// Init simulation variables
+		var speed = document.getElementById("speed");
+		tickStep = speed.options[speed.selectedIndex].value;
+		
+		currentTick = 0;
+		worldTick = 0;
+		epochMilliseconds = getEpochMilliseconds();
+		countdownStart = epochMilliseconds;
+		lastCountdownCheck = epochMilliseconds;
+		starting = true;
+
+		// Display ships in their starting position.
+		setGameObjectState(1);
+	}
+
+	function pause(button) {
+		paused = !paused;
+		
+		if (paused)
+			button.value = 'Unpause';
+		else 
+			button.value = "Pause"; 
+	}
+
+	function gameLoop(delta) {
+		grid.visible = showGrid;
+		//tickStep = document.getElementById("speed").options[speed.selectedIndex].value;
+		
+		if(starting) {
+			startUp();
+		} else {
+			if (!paused) 
+			{
+				if (currentTick % tickStep == 0) {
+					worldTick++;
+
+					setGameObjectState(worldTick);				
+					
+					for(var idx in explosions) {
+						explosions[idx].update(worldTick);
+					}		
+
+					for(var idx in smokes) {
+						smokes[idx].update(worldTick);
+					}		
+				}
+
+				currentTick++;	
+			}		
+		}		
+	}
+
+	// Startup countdown so that we know where all the agents are before the simulation starts.
+	function startUp() 
+	{
+		let ENGAGE_TIME_SECONDS = 1;		// How long to show "Engage" before the simulation starts.
+
+		countdownSeconds = Math.ceil((STARTUP_TIME - (lastCountdownCheck - countdownStart)) / 1000);
+		if(lastCountdownSeconds != countdownSeconds && countdownSeconds > 0) {
+			beep();
+			lastCountdownSeconds = countdownSeconds;
+		}
+		
+		if (countdownSeconds > ENGAGE_TIME_SECONDS) {
+			displayMessage(countdownSeconds - ENGAGE_TIME_SECONDS);
+		} else if (countdownSeconds > 0) {	
+			displayMessage("Engage Enemies!");
+		} else {
+			hideMessage();
+			starting = false;
+		}
+		
+		lastCountdownCheck = getEpochMilliseconds();
+	}
+
+	// Syncs the game world to a worldTick in the replay file.
+	function setGameObjectState(worldTick) {		
+		if(replay.length >= worldTick) {
+			var uniqueObjects = []	// Need to keep track of the items we've seen in this world tick so that we can make any dead objects invisible later on
+			for(var idx in replay[worldTick - 1].object_state) 
+			{
+				replayData = replay[worldTick - 1].object_state[idx];	// Get the world state for one object
+				uniqueObjects.push(replayData.id) 						// Add to unique list to keep track of things currently 'alive'
+				refreshState(replayData)								// Sync the state of one object
+			}
+			for(var idx in replay[worldTick - 1].actions) {
+				executeAction(replay[worldTick - 1].actions[idx], gameObjects, worldTick);
+			}	
+
+			// Update debug information 
+			updateDebugInfo(replay[worldTick - 1].debug_info);
+
+			// Now we need to make any game objects that were not referenced in this world tick invisible, as they're no longer 'alive'
+			for(idx in Object.keys(gameObjects)) 
+			{
+				key = Object.keys(gameObjects)[idx]
+				if (!uniqueObjects.includes(key)) 
+				{
+					// Doesn't exist, so make it invisible.
+					gameObjects[key].visible = false 
+				}
+			} 
+		}
+	}
+
+	// This method manages the syncing of a game object's state with data in the replay file.
+	// If an object is new, it will be added to the gameObjects collection so that it exists in the game world.
+	function refreshState(syncData) 
+	{
+		// If the object doesn't exist, we need to create a gameobject and add it to the world
+		if (!Object.keys(gameObjects).includes(syncData.id))
+		{		
+			let sprite
+			switch(syncData.type.toUpperCase()) 
+			{
+				case "HUMANSHIP":
+					sprite = new PIXI.Sprite(PIXI.loader.resources["images/humanship.png"].texture);
+					break;
+				case "ALIENSHIP": 
+					sprite = new PIXI.Sprite(PIXI.loader.resources["images/alienship.png"].texture);
+					break;
+				case "HUMANMISSILE": 
+					sprite = new PIXI.Sprite(PIXI.loader.resources["images/missile.png"].texture);					
+					break;
+				case "ALIENMISSILE": 
+					sprite = new PIXI.Sprite(PIXI.loader.resources["images/missile.png"].texture);
+					break;
+				case "HUMANLASER": 
+					sprite = new PIXI.Sprite(PIXI.loader.resources["images/lazer_blue.png"].texture); 
+					playHumanLaserSfx();
+					break;
+				case "ALIENLASER": 
+					sprite = new PIXI.Sprite(PIXI.loader.resources["images/lazer_red.png"].texture); 
+					playAlienLaserSfx();
+					break;
+				default: 
+					console.log("Can't create unknown object " + syncData.type);
+			}
+
+			if (sprite) 
+			{
+				sprite.anchor.x = 0.5;
+				sprite.anchor.y = 0.5;
+				gameObjects[syncData.id] = sprite;
+				app.stage.addChild(sprite)
+			}
+		}
+
+		// Now the game object should exist, so we can affect its properties.
+		if (syncData.id in gameObjects) 
+		{
+			gameObject = gameObjects[syncData.id];
+			gameObject.visible = true;
+			gameObject.x = syncData.x;
+			gameObject.y = syncData.y;
+			gameObject.rotation = degrees_to_radians(syncData.r);
+		} 
+		else {
+			console.log("Can't find referenced game object " + syncData.id);
+		}
+	}
+
+	function updateDebugInfo(debugInfo) 
+	{
+		document.getElementById('debuginfo').style.display = 'block';
+		document.getElementById('humanai').textContent = debugInfo.humanai;
+		document.getElementById('alienai').textContent = debugInfo.alienai;
+		
+		var hs = '';
+		if (debugInfo.humanships == 1)
+			hs = '1 ship'
+		else 
+			hs = debugInfo.humanships + ' ships'
+		document.getElementById('humanships').textContent = hs;
+		
+		var as = '';
+		if (debugInfo.alienships == 1)
+			as = '1 ship'
+		else 
+			as = debugInfo.alienships + ' ships'		
+		document.getElementById('alienships').textContent = as;
+
+		html = ''
+		for(var idx in debugInfo.additionalInfo) {
+			html += '<p>' + debugInfo.additionalInfo[idx].info + '</p>'
+		}
+		document.getElementById('additionalinfo').innerHTML = html;
+	}
+
+	function degrees_to_radians(degrees)
+	{
+		var pi = Math.PI;
+		return degrees * (pi/180);
+	}
+
+	function getEpochMilliseconds() {
+		const now = new Date()  
+		var millisecondsSinceEpoch = now.getTime();
+
+		return millisecondsSinceEpoch;		
+	}
+
+	// Action to display a message on the screen.
+	function displayMessage(messageText) {
+		app.stage.addChild(message);
+		message.text = messageText;
+		message.visible = true;
+		message.position.x = (app.view.width / 2) - (message.width / 2);
+		message.position.y = (app.view.height / 2) - (message.height / 2);		
+	}
+
+	function hideMessage() 
+	{
+		message.visible = false;
+	}
+
+	function executeAction(action, gameObjects, worldTick) 
+	{
+		switch(action.type) {
+			case "message":
+				displayMessage(action.text);
+				break;
+			case "explosion":
+				exp = new Explosion(explosion, action.id, action.x, action.y, worldTick);
+				explosions.push(exp);				
+				break;
+			case "smoke":
+				smk = new Smoke(smoke, action.id, action.x, action.y, worldTick);
+				smokes.push(smk);
+				break;
+			case "firehumanmissile": 
+				playHumanMissileSfx();
+				break;
+			case "firealienmissile": 
+				playAlienMissileSfx();
+				break;
+			default:
+				// Unknown Message
+		}
+	}
+
+	function getExplosionTextures() {
+		// Explosion sprites	
+		var texture = PIXI.loader.resources["images/explosion.png"].texture;  	
+		let textures = [];
+		let frame = 1;
+		var x = 0;
+		var y = 0;
+		
+		for (let row = 1; row <= 4; row++) {			
+			for (let col = 1; col <= 4; col++) {
+				textures.push(new PIXI.Texture(texture, new PIXI.Rectangle(x, y, 64, 64)))
+				x = x + 64;
+				frame++;
+			}
+			y = y + 64;
+			x = 0;
+		}
+		
+		return textures;
+	}
+
+	function getSmokeTextures() {
+		// Smoke sprites 
+		var texture = PIXI.loader.resources["images/smoke.png"].texture;  	
+		let textures = [];
+		let frame = 1;
+		var x = 0;
+		var y = 0;
+		
+		for (let row = 1; row <= 3; row++) {			
+			for (let col = 1; col <= 5; col++) {
+				textures.push(new PIXI.Texture(texture, new PIXI.Rectangle(x, y, 64, 64)))
+				x = x + 64;
+				frame++;
+			}
+			y = y + 64;
+			x = 0;
+		}
+		
+		return textures;
+	}
+
+	function beep() {
+		var audio = new Audio("sfx/beep.wav");
+		audio.play();
+	}
+
+	function playHumanLaserSfx() {
+		var audio = new Audio("sfx/laserhuman.wav");
+		audio.play();
+	}
+
+	function playAlienLaserSfx() {
+		var audio = new Audio("sfx/laseralien.wav");
+		audio.play();
+	}
+
+	function playHumanMissileSfx() {
+		var audio = new Audio("sfx/missile1.wav");
+		audio.play();
+	}
+
+	function playAlienMissileSfx() {
+		var audio = new Audio("sfx/missile2.wav");
+		audio.play();
+	}		
+
+	function drawGrid() {		
+		let CELL_SIZE = 40;
+
+		for(var x = 0; x <= 800; x+= CELL_SIZE) {
+			let line = new PIXI.Graphics();
+			line.lineStyle(1, 0xBEBEBE, 1);
+			line.moveTo(x, 0);
+			line.lineTo(x, 600);
+			line.x = 0;
+			line.y = 0;
+			grid.addChild(line);
+		}
+
+		for(var y = 0; y <= 600; y+= CELL_SIZE) {
+			let line = new PIXI.Graphics();
+			line.lineStyle(1, 0xBEBEBE, 1);
+			line.moveTo(0, y);
+			line.lineTo(800, y);
+			line.x = 0;
+			line.y = 0;
+			grid.addChild(line);			
+		}
+
+		app.stage.addChild(grid);
+		grid.visible = false;		
+	}
+
+	class Explosion {
+		constructor(textures, id, x, y, worldTick) {
+			this.textures = textures;
+			this.id = id;
+			this.x = x;
+			this.y = y;
+			this.totalFrames = 16;
+			this.startTick = worldTick;
+			this.ticksPerFrame = 1;
+			this.isActive = true;
+			this.sprite = new PIXI.Sprite(textures[0]);
+			this.playSfx();
+
+			this.sprite.anchor.x = 0.5;
+			this.sprite.anchor.y = 0.5;
+			this.sprite.x = x;
+			this.sprite.y = y;
+			app.stage.addChild(this.sprite)
+		}
+
+		playSfx() {
+			var idx = Math.floor(Math.random() * 3) + 1; 
+
+			var audio = new Audio("sfx/explosion" + idx + ".wav");
+			audio.play();
+		}
+
+		update(worldTick) {
+			if(this.isActive) 
+			{
+				var delta = worldTick - this.startTick;
+
+				var currentFrame = Math.floor(delta / this.ticksPerFrame);
+
+				if(currentFrame > this.totalFrames) {
+					this.isActive = false;
+					this.sprite.visible = false;
+				} else {
+					this.sprite.texture = this.textures[currentFrame];
+				}				
+			}
+		} 		
+	}
+
+	class Smoke {
+		constructor(textures, id, x, y, worldTick) {
+			this.textures = textures;
+			this.id = id;
+			this.x = x;
+			this.y = y;
+			this.totalFrames = 15;
+			this.startTick = worldTick;
+			this.ticksPerFrame = 0.5;
+			this.isActive = true;
+			this.sprite = new PIXI.Sprite(textures[0]);
+			this.playSfx();
+
+			this.sprite.anchor.x = 0.5;
+			this.sprite.anchor.y = 0.5;
+			this.sprite.x = x;
+			this.sprite.y = y;
+			this.sprite.zIndex = 999
+			app.stage.addChild(this.sprite)
+		}
+
+		playSfx() {
+			var idx = Math.floor(Math.random() * 3) + 1; 
+
+			var audio = new Audio("sfx/ding.wav");
+			audio.play();
+		}
+
+		update(worldTick) {
+			if(this.isActive) 
+			{				
+				var delta = worldTick - this.startTick;
+
+				var currentFrame = Math.floor(delta / this.ticksPerFrame);
+				if(currentFrame > this.totalFrames) {
+					this.isActive = false;
+					this.sprite.visible = false;
+				} else {					
+					this.sprite.texture = this.textures[currentFrame];
+					this.sprite.visible = true;
+				}	
+				console.log('updating ' + this.id + ' visible = ' + this.sprite.visible);			
+			}
+		} 		
+	}	
+  </script>
+</body>
+</html>
