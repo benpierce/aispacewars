@@ -9,9 +9,9 @@ def main():
     worldTick = 0
     humans = []
     aliens = []
-    for i in range(1):    
-        #humans.append(naive.RandomBot('Human', 'Human ' + str(i + 1)))
-        humans.append(mctsagent.MCTSAgent('Human', 'Human ' + str(i + 1)))
+    for i in range(20):    
+        humans.append(naive.RandomBot('Human', 'Human ' + str(i + 1)))
+        #humans.append(mctsagent.MCTSAgent('Human', 'Human ' + str(i + 1)))
         aliens.append(naive.RandomBot('Alien', 'Alien ' + str(i + 1)))
 
     humanAI = clean_class_name(str(type(humans[0])))
