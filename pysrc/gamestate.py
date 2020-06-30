@@ -1,5 +1,10 @@
 from world import World 
 from swtypes import Point
+from swtypes import Cell
+from swtypes import MoveToCell
+from swtypes import MoveFireLaser
+from swtypes import MoveFireLeftMissile
+from swtypes import MoveFireRightMissile
 import os
 import copy
 
@@ -23,9 +28,44 @@ class GameState():
     def is_over(self):
         return self.world.is_gameover()
 
+    def winner(self):
+        return self.world.winning_team()
+
     def next_world_tick(self):
         self.world_tick += 1
         self.world.update_step(self.world_tick)
+
+    def legal_moves(self, agent):
+        current_cell = self.world.get_cell_from_point(agent.position)
+        
+        # We now need to get every cell, except the one that the agent is on.
+        moves = []
+        cells = []
+
+        for row in range(1, self.world.row_count() + 1):
+            for col in range(1, self.world.col_count() + 1):
+                if not (row == current_cell.row and col == current_cell.col):
+                    cells.append(Cell(row, col))
+
+        # Can always move to any cell on the grid. 
+        for cell in cells:
+            moves.append(MoveToCell(cell))
+
+        # Can fire a missile at any cell on the grid, if we have missiles. 
+        if agent.can_fire_missile(self) and agent.can_fire_left_missile():
+            for cell in cells:
+                moves.append(MoveFireLeftMissile(cell))
+
+        if agent.can_fire_missile(self) and agent.can_fire_right_missile():
+            for cell in cells:
+                moves.append(MoveFireRightMissile(cell))
+                                
+        # Can fire a laser at any cell on the grid, if we're not in cooldown.                      
+        if agent.can_fire_laser(self):
+            for cell in cells:
+                moves.append(MoveFireLaser(cell))
+
+        return moves                
 
     def init_replay_file(self):        
         try:

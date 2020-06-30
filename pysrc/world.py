@@ -43,11 +43,11 @@ class World():
 
     # Returns the number of rows in the world
     def row_count(self):
-        return self.height / self.cell_size
+        return int(self.height / self.cell_size)
 
     # Returns the number of columns in the world
     def col_count(self):
-        return self.width / self.cell_size
+        return int(self.width / self.cell_size)
 
     # Returns True if the cell is in the gameworld, otherwise false.
     def cell_in_world(self, cell):
@@ -177,6 +177,15 @@ class World():
                 message = 'Humans ({0}) Win!'.format(self.debug_info.humanAI)
 
             self.actions.append(Action("message", None, None, None, message))
+
+    def winning_team(self):
+        if not self.is_gameover() or self.get_ship_count() == 0:
+            return None 
+
+        if self.get_human_ship_count() == 0:
+            return "Alien"
+        elif self.get_alien_ship_count() == 0:
+            return "Human" 
 
     def is_gameover(self):
         return self.get_human_ship_count() == 0 or self.get_alien_ship_count() == 0

@@ -1,4 +1,5 @@
 import naive 
+import mctsagent 
 from gamestate import GameState 
 from debuginfo import DebugInfo 
 import types 
@@ -8,8 +9,9 @@ def main():
     worldTick = 0
     humans = []
     aliens = []
-    for i in range(2):    
-        humans.append(naive.RandomBot('Human', 'Human ' + str(i + 1)))
+    for i in range(1):    
+        #humans.append(naive.RandomBot('Human', 'Human ' + str(i + 1)))
+        humans.append(mctsagent.MCTSAgent('Human', 'Human ' + str(i + 1)))
         aliens.append(naive.RandomBot('Alien', 'Alien ' + str(i + 1)))
 
     humanAI = clean_class_name(str(type(humans[0])))
@@ -20,13 +22,14 @@ def main():
     game.init_replay_file()
     game.serialize_gamestate()
 
+    iter = 1
     while not game.is_over():
-        for bot in [*humans, *aliens]:
+        for bot in [*humans, *aliens]:            
             if bot.can_move():
                 bot_move = bot.select_move(game) 
                 if bot_move is not None:
                     game.apply_move(bot, bot_move) 
-
+        iter += 1
         # Saves the game state to the file and increments the world time
         game.next_world_tick()
         game.serialize_gamestate()
