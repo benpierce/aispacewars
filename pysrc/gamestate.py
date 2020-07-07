@@ -15,10 +15,7 @@ class GameState():
         self.replay_filename = replay_filename 
 
     def apply_move(self, agent, move):                
-        next_world = copy.deepcopy(self.world)
-        next_world.apply_move(agent, move)
-
-        return GameState(next_world, self.replay_filename)
+        self.world.apply_move(agent, move)
 
     @classmethod 
     def new_game(cls, height, width, humans, aliens, debug_info, replay_filename):
@@ -34,6 +31,12 @@ class GameState():
     def next_world_tick(self):
         self.world_tick += 1
         self.world.update_step(self.world_tick)
+
+    def clone(self):
+        cloned_world = self.world.clone() 
+        cloned_game_state = GameState(cloned_world, None)
+        cloned_game_state.world_tick = self.world_tick 
+        return cloned_game_state 
 
     def legal_moves(self, agent):
         current_cell = self.world.get_cell_from_point(agent.position)
@@ -79,6 +82,9 @@ class GameState():
         with open(self.replay_filename, 'a') as replay_file:
             replay_file.write('\n]')
 
+    def get_agent_score(self, ship_name):
+        return self.world.get_ship_by_name(ship_name).score
+        
     # This method will serialize the gamestate of the entire world to the replay file.
     def serialize_gamestate(self):
         ship_count = self.world.get_ship_count()

@@ -5,9 +5,10 @@ from swtypes import MoveFireLaser
 from swtypes import MoveFireLeftMissile
 from swtypes import MoveFireRightMissile
 from swtypes import Cell 
+from swtypes import ScorableAction
 
 class Agent:
-    def __init__(self, team, name, position=Point(0, 0), bearing=0):
+    def __init__(self, team, name, position=Point(0, 0), bearing=0, timescaled = True):
         self.team = team
         self.name = name
         self.position = position
@@ -19,6 +20,8 @@ class Agent:
         self.dead = False
         self.health = 90           # About 3 laser hits
         self.commands = []
+        self.score = 0             # Scoring mechanism so that we can track how well an agent is performing in the game.
+        self.timescaled = timescaled    # True if the rewards decrease as more time goes by in the simulation. 
 
         self.WIDTH = 35
         self.HEIGHT = 48
@@ -105,3 +108,46 @@ class Agent:
 
     def select_move(self, game_state):
         raise NotImplementedError()
+
+    # Registers a score modifier based on in-simulation actions (could be good or bad).
+    # This method may need to be tuned to get the AI making the right decisions.
+    def register_reward(self, scorable_action, world_tick):
+        score_value = 0
+
+        #if scorable_action == ScorableAction.Kamikaze:
+        #    score_value = -4  # Horrible move to sacrifice yourself
+
+        #if scorable_action == ScorableAction.TeamLost:
+        #    score_value = -3  # Bad overall outcome for a multi-agent system
+        
+        #if scorable_action == ScorableAction.Died:
+        #    score_value = -2
+
+        #if scorable_action == ScorableAction.HitByLaser:
+        #    score_value = -1 
+
+        #if scorable_action == ScorableAction.LaseredEnemy:
+        #    score_value = 1
+
+        #if scorable_action == ScorableAction.KilledEnemy:
+        #    score_value = 2
+
+        #if scorable_action == ScorableAction.Survived:
+        #    score_value = 3
+
+        #if scorable_action == ScorableAction.TeamWon:
+        #    score_value = 4    
+
+        #if self.timescaled:
+        #    self.score += (float(score_value) / float(world_tick))
+        #else:
+        #    self.score += score_value 
+
+        if scorable_action == ScorableAction.TeamWon:
+            self.score += 1.0
+
+        if scorable_action == ScorableAction.Kamikaze:
+            self.score -= 1.0
+
+        if scorable_action == ScorableAction.FriendlyFire:
+            self.score -= 0.1

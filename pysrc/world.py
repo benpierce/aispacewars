@@ -16,6 +16,8 @@ from missile import Missile
 from debuginfo import DebugInfo 
 import math 
 import datetime 
+import copy 
+from swtypes import ScorableAction
 
 class World():
     def __init__(self, height, width, debug_info, human_ships = [], alien_ships = [], collisions = CollisionSetting.OnlyEnemyShips, cell_size = 40):
@@ -40,6 +42,46 @@ class World():
         self.LASER_SPEED = 75.0     # How fast is a laser shot?
 
         self.__init_ships__()   # Initialize ship positions
+
+    # Clones the world so that there are no references to the base instance.
+    def clone(self):
+        human_ships = []
+        alien_ships = []
+        missiles = []
+        lasers = []
+        actions = []
+
+        for ship in self.human_ships:
+            cloned_ship = copy.deepcopy(ship)            
+            human_ships.append(cloned_ship)
+
+        for ship in self.alien_ships:
+            cloned_ship = copy.deepcopy(ship)
+            alien_ships.append(cloned_ship)
+
+        for missile in self.missiles:
+            cloned_missile = copy.deepcopy(missile)             
+            missiles.append(cloned_missile)
+
+        for laser in self.lasers:
+            cloned_laser = copy.deepcopy(laser)
+            lasers.append(cloned_laser)
+
+        for action in self.actions:
+            cloned_action = copy.deepcopy(action) 
+            actions.append(cloned_action)
+
+        cloned_world = World(self.height, self.width, self.debug_info, human_ships, alien_ships, self.collisions, self.cell_size)
+        cloned_world.human_ships = human_ships  # Need to reset their positions back to the base instance
+        cloned_world.alien_ships = alien_ships  # Need to reset their positions back to the base instance
+        cloned_world.missiles = missiles 
+        cloned_world.lasers = lasers 
+        cloned_world.actions = actions 
+        cloned_world.world_tick = self.world_tick 
+        cloned_world.last_update_time = self.last_update_time
+        cloned_world.smoke_count = self.smoke_count 
+
+        return cloned_world 
 
     # Returns the number of rows in the world
     def row_count(self):
@@ -105,7 +147,14 @@ class World():
             if not missile.dead:
                 cnt += 1 
         
-        return cnt         
+        return cnt 
+
+    def get_ship_by_name(self, ship_name): 
+        for ship in [*self.alien_ships, *self.human_ships]:
+            if ship.name == ship_name:
+                return ship 
+
+        return None 
 
     def apply_move(self, agent, move):
         if isinstance(move, MoveToCell):
@@ -178,6 +227,23 @@ class World():
 
             self.actions.append(Action("message", None, None, None, message))
 
+            # Register end of game rewards 
+            for ship in [*self.human_ships]:
+                if not ship.dead:
+                    ship.register_reward(ScorableAction.Survived, self.world_tick)
+                if self.get_human_ship_count() == 0:
+                    ship.register_reward(ScorableAction.TeamLost, self.world_tick)
+                else:
+                    ship.register_reward(ScorableAction.TeamWon, self.world_tick)
+
+            for ship in [*self.alien_ships]:
+                if not ship.dead:
+                    ship.register_reward(ScorableAction.Survived, self.world_tick)
+                if self.get_alien_ship_count() == 0:
+                    ship.register_reward(ScorableAction.TeamLost, self.world_tick)
+                else:
+                    ship.register_reward(ScorableAction.TeamWon, self.world_tick)
+
     def winning_team(self):
         if not self.is_gameover() or self.get_ship_count() == 0:
             return None 
@@ -202,10 +268,13 @@ class World():
                     if other.dead:
                         continue 
                     if ship.team == other.team and self.collisions == CollisionSetting.OnlyEnemyShips:
-                        continue 
-                    #if self.get_cell_from_point(ship.position) == self.get_cell_from_point(other.position):
+                        continue                     
                     if ship.is_touched(other.position):
-                        self.actions.append(Action("explosion", ship.name, ship.position.x, ship.position.y, None))
+                        self.actions.append(Action("explosion", ship.name, ship.position.x, ship.position.y, None))     
+                        ship.register_reward(ScorableAction.Kamikaze, self.world_tick)
+                        other.register_reward(ScorableAction.Kamikaze, self.world_tick)
+                        ship.register_reward(ScorableAction.Died, self.world_tick)
+                        other.register_reward(ScorableAction.Died, self.world_tick)
                         ship.kill()
                         other.kill()
 
@@ -220,8 +289,13 @@ class World():
                 if ship.is_touched(laser.position):
                     laser.kill()
                     ship.health -= laser.damage
+                    ship.register_reward(ScorableAction.HitByLaser, self.world_tick)
+                    self.get_ship_by_name(laser.owner_name).register_reward(ScorableAction.LaseredEnemy, self.world_tick)
+
                     if ship.health <= 0:                    
                         self.actions.append(Action("explosion", ship.name, ship.position.x, ship.position.y, None))
+                        ship.register_reward(ScorableAction.Died, self.world_tick)
+                        self.get_ship_by_name(laser.owner_name).register_reward(ScorableAction.KilledEnemy, self.world_tick)
                         ship.kill()
                     else:              
                         self.smoke_count += 1         
@@ -237,9 +311,16 @@ class World():
 
                 if ship.is_touched(missile.position):
                     missile.kill()
-                    ship.health -= missile.damage 
+                    ship.health -= missile.damage                     
                     if ship.health <= 0:                    
                         self.actions.append(Action("explosion", ship.name, ship.position.x, ship.position.y, None))
+                        
+                        if ship.team != missile.team:
+                            self.get_ship_by_name(missile.owner).register_reward(ScorableAction.KilledEnemy, self.world_tick)
+                        else:
+                            self.get_ship_by_name(missile.owner).register_reward(ScorableAction.FriendlyFire, self.world_tick)  # You killed your teammate :(
+                        
+                        ship.register_reward(ScorableAction.Died, self.world_tick)
                         ship.kill()
                                 
     def step_rotation(self, agent, command):
@@ -289,7 +370,7 @@ class World():
         start_pos = self.relative_position(agent, Point(agent.position.x, (agent.position.y - 20)))
         #start_pos = Point(agent.position.x, agent.position.y)
 
-        laser = Laser(agent.team, name, start_pos, agent.bearing)        
+        laser = Laser(agent.team, name, agent.name, start_pos, agent.bearing)        
         self.lasers.append(laser)
         agent.command_finished()
 

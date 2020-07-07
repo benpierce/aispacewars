@@ -10,8 +10,8 @@ def main():
     humans = []
     aliens = []
     for i in range(20):    
-        humans.append(naive.RandomBot('Human', 'Human ' + str(i + 1)))
-        #humans.append(mctsagent.MCTSAgent('Human', 'Human ' + str(i + 1)))
+        #humans.append(naive.RandomBot('Human', 'Human ' + str(i + 1)))
+        humans.append(mctsagent.MCTSAgent('Human', 'Human ' + str(i + 1)))
         aliens.append(naive.RandomBot('Alien', 'Alien ' + str(i + 1)))
 
     humanAI = clean_class_name(str(type(humans[0])))
@@ -24,14 +24,14 @@ def main():
 
     iter = 1
     while not game.is_over():
-        for bot in [*humans, *aliens]:            
+        for bot in [*aliens, *humans]:    
             if bot.can_move():
                 bot_move = bot.select_move(game) 
                 if bot_move is not None:
                     game.apply_move(bot, bot_move) 
         iter += 1
         # Saves the game state to the file and increments the world time
-        game.next_world_tick()
+        game.next_world_tick()        
         game.serialize_gamestate()
     
     game.close_replay_file() 

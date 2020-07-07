@@ -6,21 +6,44 @@ class CollisionSetting(enum.Enum):
     OnlyEnemyShips = 2,
     AllShips = 3
 
+class ScorableAction(enum.Enum):
+    Kamikaze = 1,       # Ran into another ship and died 
+    Died = 2,           # Died 
+    HitByLaser = 3,     # Was hit by a laser (may not have died, but sustained damage)
+    TeamLost = 4,       # Team lost the game
+    KilledEnemy = 5,    # Killed an enemy
+    LaseredEnemy = 6,   # Hit an enemy with laser fire (may not have been fatal)
+    Survived = 7,       # Survived to the end
+    TeamWon = 8,        # The team won (may not have survived though)
+    FriendlyFire = 9    # You killed your teammate with friendly fire :(
+
 class MoveToCell():
     def __init__(self, target_cell):
         self.target_cell = target_cell
+
+    def __str__(self):
+         return 'MoveToCell ({0},{1})'.format(self.target_cell.row, self.target_cell.col)
 
 class MoveFireLeftMissile():
     def __init__(self, target_cell):
         self.target_cell = target_cell
 
+    def __str__(self):
+         return 'FireLeftMissile ({0}:{1})'.format(self.target_cell.row, self.target_cell.col)
+
 class MoveFireRightMissile():
     def __init__(self, target_cell):
         self.target_cell = target_cell
 
+    def __str__(self):
+         return 'FireRightMissile ({0}:{1})'.format(self.target_cell.row, self.target_cell.col)
+
 class MoveFireLaser():
     def __init__(self, target_cell):
         self.target_cell = target_cell
+
+    def __str__(self):
+         return 'FireLaser ({0}:{1})'.format(self.target_cell.row, self.target_cell.col)
 
 class CommandChangeBearing():
     def __init__(self, target_bearing, is_clockwise):
