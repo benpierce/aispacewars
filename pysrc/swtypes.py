@@ -20,6 +20,7 @@ class ScorableAction(enum.Enum):
 class MoveToCell():
     def __init__(self, target_cell):
         self.target_cell = target_cell
+        self.available = True 
 
     def __str__(self):
          return 'MoveToCell ({0},{1})'.format(self.target_cell.row, self.target_cell.col)
@@ -27,6 +28,7 @@ class MoveToCell():
 class MoveFireLeftMissile():
     def __init__(self, target_cell):
         self.target_cell = target_cell
+        self.available = True 
 
     def __str__(self):
          return 'FireLeftMissile ({0}:{1})'.format(self.target_cell.row, self.target_cell.col)
@@ -34,6 +36,7 @@ class MoveFireLeftMissile():
 class MoveFireRightMissile():
     def __init__(self, target_cell):
         self.target_cell = target_cell
+        self.available = True 
 
     def __str__(self):
          return 'FireRightMissile ({0}:{1})'.format(self.target_cell.row, self.target_cell.col)
@@ -41,6 +44,7 @@ class MoveFireRightMissile():
 class MoveFireLaser():
     def __init__(self, target_cell):
         self.target_cell = target_cell
+        self.available = True 
 
     def __str__(self):
          return 'FireLaser ({0}:{1})'.format(self.target_cell.row, self.target_cell.col)
@@ -78,6 +82,12 @@ class Action():
         self.x = x 
         self.y = y
         self.text = text         
+
+class Reward():
+    def __init__(self, action, score, world_tick):
+        self.action = action 
+        self.score = score 
+        self.world_tick = world_tick
 
 class Cell(namedtuple('Cell', 'row col')):
     def __eq__(self, other):

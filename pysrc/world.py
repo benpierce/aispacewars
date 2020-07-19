@@ -18,6 +18,7 @@ import math
 import datetime 
 import copy 
 from swtypes import ScorableAction
+from profile import Profile 
 
 class World():
     def __init__(self, height, width, debug_info, human_ships = [], alien_ships = [], collisions = CollisionSetting.OnlyEnemyShips, cell_size = 40):
@@ -34,6 +35,8 @@ class World():
         self.debug_info = debug_info 
         self.last_update_time = datetime.datetime.now()
         self.smoke_count = 0
+        self.human_ship_count = len(human_ships)
+        self.alien_ship_count = len(alien_ships)
 
         # Constants
         self.ROTATION_SPEED_PER_TICK = 25.0
@@ -74,6 +77,8 @@ class World():
         cloned_world = World(self.height, self.width, self.debug_info, human_ships, alien_ships, self.collisions, self.cell_size)
         cloned_world.human_ships = human_ships  # Need to reset their positions back to the base instance
         cloned_world.alien_ships = alien_ships  # Need to reset their positions back to the base instance
+        cloned_world.human_ship_count = self.human_ship_count
+        cloned_world.alien_ship_count = self.alien_ship_count
         cloned_world.missiles = missiles 
         cloned_world.lasers = lasers 
         cloned_world.actions = actions 
@@ -84,7 +89,7 @@ class World():
         return cloned_world 
 
     # Returns the number of rows in the world
-    def row_count(self):
+    def row_count(self):        
         return int(self.height / self.cell_size)
 
     # Returns the number of columns in the world
@@ -115,30 +120,20 @@ class World():
         return Cell(row, col)
 
     def get_ship_count(self):
-        return self.get_human_ship_count() + self.get_alien_ship_count()
+        return self.human_ship_count + self.alien_ship_count
 
     def get_human_ship_count(self):
-        cnt = 0
-        for ship in [*self.human_ships]:
-            if not ship.dead:
-                cnt += 1
-
-        return cnt 
+        return self.human_ship_count
 
     def get_alien_ship_count(self):
-        cnt = 0
-        for ship in [*self.alien_ships]:
-            if not ship.dead:
-                cnt += 1
-
-        return cnt 
+        return self.alien_ship_count 
 
     def get_laser_count(self):
         cnt = 0
         for laser in self.lasers:
             if not laser.dead:
                 cnt += 1 
-        
+ 
         return cnt 
 
     def get_missile_count(self):
@@ -146,7 +141,6 @@ class World():
         for missile in self.missiles:
             if not missile.dead:
                 cnt += 1 
-        
         return cnt 
 
     def get_ship_by_name(self, ship_name): 
@@ -156,7 +150,10 @@ class World():
 
         return None 
 
-    def apply_move(self, agent, move):
+    def apply_move(self, agent, move, simulation_move):
+        if simulation_move:
+            agent.last_think_tick = self.world_tick 
+        
         if isinstance(move, MoveToCell):
             self.__apply_movetocell__(agent, move)
         elif isinstance(move, MoveFireLeftMissile):
@@ -186,16 +183,13 @@ class World():
             elif isinstance(cmd, CommandFireLeftMissile):
                 self.process_left_missile(ship, cmd) 
             elif isinstance(cmd, CommandFireRightMissile):
-                self.process_right_missile(ship, cmd)      
+                self.process_right_missile(ship, cmd)  
 
         # Collision detection
         self.check_collisions()
 
         # Check to see if the game has ended
         self.check_gameover()
-
-        # Kill off any out of bounds projectiles to reduce the replay file size.
-        self.remove_outofbounds()
 
         # Update debug info 
         delta = datetime.datetime.now() - self.last_update_time 
@@ -204,15 +198,6 @@ class World():
         some_info = ['World Tick: {0}'.format(self.world_tick), 'Tick Processing Time (ms): {0}'.format(processingtime)]
         self.debug_info.update_additional_info(some_info)
         self.last_update_time = datetime.datetime.now()
-
-    def remove_outofbounds(self):
-        for laser in self.lasers:
-            if not self.cell_in_world(self.get_cell_from_point(laser.position)):
-                laser.kill()
-        
-        for missile in self.missiles:
-            if not self.cell_in_world(self.get_cell_from_point(missile.position)):
-                missile.kill()
     
     def check_gameover(self):
         message = ""
@@ -231,17 +216,17 @@ class World():
             for ship in [*self.human_ships]:
                 if not ship.dead:
                     ship.register_reward(ScorableAction.Survived, self.world_tick)
-                if self.get_human_ship_count() == 0:
+                if self.get_human_ship_count() == 0 and self.get_alien_ship_count() > 0:
                     ship.register_reward(ScorableAction.TeamLost, self.world_tick)
-                else:
+                elif self.get_human_ship_count() > 0 and self.get_alien_ship_count() == 0:
                     ship.register_reward(ScorableAction.TeamWon, self.world_tick)
 
             for ship in [*self.alien_ships]:
                 if not ship.dead:
                     ship.register_reward(ScorableAction.Survived, self.world_tick)
-                if self.get_alien_ship_count() == 0:
+                if self.get_alien_ship_count() == 0 and self.get_human_ship_count() > 0:
                     ship.register_reward(ScorableAction.TeamLost, self.world_tick)
-                else:
+                elif self.get_alien_ship_count() > 0 and self.get_human_ship_count() == 0:
                     ship.register_reward(ScorableAction.TeamWon, self.world_tick)
 
     def winning_team(self):
@@ -254,14 +239,14 @@ class World():
             return "Human" 
 
     def is_gameover(self):
-        return self.get_human_ship_count() == 0 or self.get_alien_ship_count() == 0
+        return self.human_ship_count == 0 or self.alien_ship_count == 0
 
     def check_collisions(self):
         for ship in [*self.human_ships, *self.alien_ships]:
             if ship.dead:
                 continue 
 
-            if self.collisions != CollisionSetting.CollisionsOff:
+            if self.collisions != CollisionSetting.CollisionsOff:            
                 for other in [*self.human_ships, *self.alien_ships]:
                     if ship.name == other.name:
                         continue 
@@ -275,6 +260,8 @@ class World():
                         other.register_reward(ScorableAction.Kamikaze, self.world_tick)
                         ship.register_reward(ScorableAction.Died, self.world_tick)
                         other.register_reward(ScorableAction.Died, self.world_tick)
+                        self.human_ship_count -= 1
+                        self.alien_ship_count -= 1                        
                         ship.kill()
                         other.kill()
 
@@ -297,6 +284,10 @@ class World():
                         ship.register_reward(ScorableAction.Died, self.world_tick)
                         self.get_ship_by_name(laser.owner_name).register_reward(ScorableAction.KilledEnemy, self.world_tick)
                         ship.kill()
+                        if ship.team == 'Human':
+                            self.human_ship_count -= 1
+                        else:
+                            self.alien_ship_count -= 1
                     else:              
                         self.smoke_count += 1         
                         self.actions.append(Action("smoke", 'smoke{0}'.format(self.smoke_count), ship.position.x, ship.position.y, None))
@@ -322,6 +313,10 @@ class World():
                         
                         ship.register_reward(ScorableAction.Died, self.world_tick)
                         ship.kill()
+                        if ship.team == 'Human':
+                            self.human_ship_count -= 1
+                        else:
+                            self.alien_ship_count -= 1
                                 
     def step_rotation(self, agent, command):
         if command.is_clockwise:      
@@ -368,7 +363,6 @@ class World():
         agent.last_laser_world_tick = self.world_tick 
         name = 'laser{0}'.format(len(self.lasers) + 1)
         start_pos = self.relative_position(agent, Point(agent.position.x, (agent.position.y - 20)))
-        #start_pos = Point(agent.position.x, agent.position.y)
 
         laser = Laser(agent.team, name, agent.name, start_pos, agent.bearing)        
         self.lasers.append(laser)
@@ -401,17 +395,25 @@ class World():
     # Loops through each laser and increments the position or destroys the object if it's off screen.
     def step_laser(self):
         for laser in self.lasers:
-            x = self.LASER_SPEED * math.cos(math.radians(laser.bearing - 90))
-            y = self.LASER_SPEED * math.sin(math.radians(laser.bearing - 90)) 
-            laser.position.x += x 
-            laser.position.y += y 
+            if not laser.dead:
+                x = self.LASER_SPEED * math.cos(math.radians(laser.bearing - 90))
+                y = self.LASER_SPEED * math.sin(math.radians(laser.bearing - 90)) 
+                laser.position.x += x 
+                laser.position.y += y 
+            
+                if laser.position.x < 0 or laser.position.x > self.width or laser.position.y < 0 or laser.position.y > self.height:
+                    laser.kill()
 
     def step_missile(self):
         for missile in self.missiles:
-            x = self.MISSILE_SPEED * math.cos(math.radians(missile.bearing - 90))
-            y = self.MISSILE_SPEED * math.sin(math.radians(missile.bearing - 90)) 
-            missile.position.x += x 
-            missile.position.y += y                         
+            if not missile.dead:
+                x = self.MISSILE_SPEED * math.cos(math.radians(missile.bearing - 90))
+                y = self.MISSILE_SPEED * math.sin(math.radians(missile.bearing - 90)) 
+                missile.position.x += x 
+                missile.position.y += y   
+
+                if missile.position.x < 0 or missile.position.x > self.width or missile.position.y < 0 or missile.position.y > self.height:
+                    missile.kill()
 
     # Gets the x,y coordinates relative to a ship's center and rotation.
     def relative_position(self, ship, dst):

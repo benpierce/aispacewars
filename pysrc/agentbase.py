@@ -6,6 +6,7 @@ from swtypes import MoveFireLeftMissile
 from swtypes import MoveFireRightMissile
 from swtypes import Cell 
 from swtypes import ScorableAction
+from swtypes import Reward
 
 class Agent:
     def __init__(self, team, name, position=Point(0, 0), bearing=0, timescaled = True):
@@ -15,13 +16,26 @@ class Agent:
         self.bearing = 0
         self.left_missile = True 
         self.right_missile = True 
-        self.LASER_COOLDOWN = 5   # How many ticks before a laser can be fired again.
+        self.LASER_COOLDOWN = 5         # How many ticks before a laser can be fired again.
         self.last_laser_world_tick = 0
         self.dead = False
-        self.health = 90           # About 3 laser hits
+        self.health = 90                # About 3 laser hits
         self.commands = []
-        self.score = 0             # Scoring mechanism so that we can track how well an agent is performing in the game.
+        self.score = 0                  # Scoring mechanism so that we can track how well an agent is performing in the game.
         self.timescaled = timescaled    # True if the rewards decrease as more time goes by in the simulation. 
+        self.discount_factor = 0.9      # Discount factor for rewards occuring in the future (IE: rewards farther away are worth less than immediate rewards)
+        self.rewards = []               # All accumulated rewards
+        self.reward_policy = {
+            ScorableAction.Kamikaze: -6,
+            ScorableAction.TeamLost: - 4,
+            ScorableAction.Died: -1,
+            ScorableAction.HitByLaser: -0.33,
+            ScorableAction.FriendlyFire: -4,
+            ScorableAction.LaseredEnemy: 2,
+            ScorableAction.KilledEnemy: 1,
+            ScorableAction.Survived: 4,
+            ScorableAction.TeamWon: 4
+        }		
 
         self.WIDTH = 35
         self.HEIGHT = 48
@@ -68,6 +82,10 @@ class Agent:
 
     # Agent can move if it's completed it's last action
     def can_move(self):
+        # Uncomment to ensure Aliens don't move. IE: we're creating the easiest possible scenario here for testing purposes.
+        #if self.team == 'Alien':
+        #    return False 
+        #else:
         return (len(self.commands) == 0 and not self.dead)  
 
     def add_command(self, command):
@@ -112,42 +130,27 @@ class Agent:
     # Registers a score modifier based on in-simulation actions (could be good or bad).
     # This method may need to be tuned to get the AI making the right decisions.
     def register_reward(self, scorable_action, world_tick):
-        score_value = 0
+        self.rewards.append(Reward(scorable_action, self.reward_policy[scorable_action], world_tick))
 
-        #if scorable_action == ScorableAction.Kamikaze:
-        #    score_value = -4  # Horrible move to sacrifice yourself
+    def get_rewards_since(self, world_tick):
+        total = 0
 
-        #if scorable_action == ScorableAction.TeamLost:
-        #    score_value = -3  # Bad overall outcome for a multi-agent system
-        
-        #if scorable_action == ScorableAction.Died:
-        #    score_value = -2
+        for reward in self.rewards:
+            if reward.world_tick >= world_tick:
+                if self.timescaled == False:
+                    total += reward.score 
+                else:                    
+                    discount = pow(self.discount_factor, reward.world_tick - world_tick - 1)
+                    total += discount * reward.score 
 
-        #if scorable_action == ScorableAction.HitByLaser:
-        #    score_value = -1 
+        return total 
 
-        #if scorable_action == ScorableAction.LaseredEnemy:
-        #    score_value = 1
-
-        #if scorable_action == ScorableAction.KilledEnemy:
-        #    score_value = 2
-
-        #if scorable_action == ScorableAction.Survived:
-        #    score_value = 3
-
-        #if scorable_action == ScorableAction.TeamWon:
-        #    score_value = 4    
-
-        #if self.timescaled:
-        #    self.score += (float(score_value) / float(world_tick))
-        #else:
-        #    self.score += score_value 
-
-        if scorable_action == ScorableAction.TeamWon:
-            self.score += 1.0
-
-        if scorable_action == ScorableAction.Kamikaze:
-            self.score -= 1.0
-
-        if scorable_action == ScorableAction.FriendlyFire:
-            self.score -= 0.1
+    def print_rewards(self, world_tick):  
+        print('######## REWARDS for agent {0} at tick {1} total score is {2} ########'.format(self.name, world_tick, self.get_rewards_since(world_tick)))
+        for reward in self.rewards:
+            if reward.world_tick >= world_tick:
+                inscope = "In scope"
+            else:
+                inscope = "Not in scope"
+            print('   Tick {0}: Action {1} = {2} is {3}'.format(reward.world_tick, reward.action, reward.score, inscope))
+        print('##################################################')

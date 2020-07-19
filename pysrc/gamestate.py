@@ -5,6 +5,7 @@ from swtypes import MoveToCell
 from swtypes import MoveFireLaser
 from swtypes import MoveFireLeftMissile
 from swtypes import MoveFireRightMissile
+from profile import Profile 
 import os
 import copy
 
@@ -13,9 +14,30 @@ class GameState():
         self.world = world 
         self.world_tick = 1        
         self.replay_filename = replay_filename 
+        self.moves = []
+        self.__init_moves__()   # For performance purposes we're going to cache all the possible moves for any ship.
 
-    def apply_move(self, agent, move):                
-        self.world.apply_move(agent, move)
+    def apply_move(self, agent, move, simulation_move = False):                
+        self.world.apply_move(agent, move, simulation_move)
+
+    def __init_moves__(self):
+        self.moves = []
+
+        for row in range(1, self.world.row_count() + 1):
+            for col in range(1, self.world.col_count() + 1):
+                self.moves.append(MoveToCell(Cell(row, col)))   
+
+        for row in range(1, self.world.row_count() + 1):
+            for col in range(1, self.world.col_count() + 1):
+                self.moves.append(MoveFireLeftMissile(Cell(row, col)))
+
+        for row in range(1, self.world.row_count() + 1):
+            for col in range(1, self.world.col_count() + 1):
+                self.moves.append(MoveFireRightMissile(Cell(row, col)))
+
+        for row in range(1, self.world.row_count() + 1):
+            for col in range(1, self.world.col_count() + 1):      
+                self.moves.append(MoveFireLaser(Cell(row, col)))
 
     @classmethod 
     def new_game(cls, height, width, humans, aliens, debug_info, replay_filename):
@@ -40,35 +62,43 @@ class GameState():
 
     def legal_moves(self, agent):
         current_cell = self.world.get_cell_from_point(agent.position)
-        
-        # We now need to get every cell, except the one that the agent is on.
-        moves = []
-        cells = []
+        row_count = self.world.row_count()
+        col_count = self.world.col_count()        
+        position_offset = ((current_cell.row - 1) * col_count) + (current_cell.col - 1)
 
-        for row in range(1, self.world.row_count() + 1):
-            for col in range(1, self.world.col_count() + 1):
-                if not (row == current_cell.row and col == current_cell.col):
-                    cells.append(Cell(row, col))
+        for move in self.moves[0:300]:
+            move.available = True 
 
-        # Can always move to any cell on the grid. 
-        for cell in cells:
-            moves.append(MoveToCell(cell))
+        self.moves[position_offset].available = False 
 
-        # Can fire a missile at any cell on the grid, if we have missiles. 
         if agent.can_fire_missile(self) and agent.can_fire_left_missile():
-            for cell in cells:
-                moves.append(MoveFireLeftMissile(cell))
+            offset = 300 + position_offset 
+            for move in self.moves[300:600]:
+                move.available = True 
+            self.moves[offset].available = False  # Can't fire on your own position                        
+        else:
+            for move in self.moves[300:600]:
+                move.available = False 
 
         if agent.can_fire_missile(self) and agent.can_fire_right_missile():
-            for cell in cells:
-                moves.append(MoveFireRightMissile(cell))
-                                
-        # Can fire a laser at any cell on the grid, if we're not in cooldown.                      
-        if agent.can_fire_laser(self):
-            for cell in cells:
-                moves.append(MoveFireLaser(cell))
+            offset = 600 + position_offset 
+            for move in self.moves[600:900]:
+                move.available = True             
+            self.moves[offset].available = False  # Can't fire on your own position                        
+        else:
+            for move in self.moves[600:900]:
+                move.available = False
 
-        return moves                
+        if agent.can_fire_laser(self):
+            offset = 900 + position_offset 
+            for move in self.moves[900:1200]:
+                move.available = True
+            self.moves[offset].available = False  # Can't fire on your own position                        
+        else:
+            for move in self.moves[900:1200]:
+                move.available = False 
+
+        return [move for move in self.moves if move.available]                    
 
     def init_replay_file(self):        
         try:
@@ -82,8 +112,8 @@ class GameState():
         with open(self.replay_filename, 'a') as replay_file:
             replay_file.write('\n]')
 
-    def get_agent_score(self, ship_name):
-        return self.world.get_ship_by_name(ship_name).score
+    def get_agent_score_since(self, ship_name, from_world_tick):
+        return self.world.get_ship_by_name(ship_name).get_rewards_since(from_world_tick)
         
     # This method will serialize the gamestate of the entire world to the replay file.
     def serialize_gamestate(self):

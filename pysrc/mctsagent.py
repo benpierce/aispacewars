@@ -5,6 +5,7 @@ from swtypes import MoveFireLaser
 from swtypes import MoveFireLeftMissile
 from swtypes import MoveFireRightMissile
 from swtypes import Cell 
+from profile import Profile
 from mcts import MCTSNode
 import copy
 import random
@@ -12,9 +13,9 @@ import math
 
 class MCTSAgent(Agent):
     def __init__(self, team, name, position=Point(0, 0), bearing=0):                
-        super().__init__(team, name, position, bearing, False)
-        self.num_rounds = 10000       # Number of random simulations so that we can find a good candidate move.
-        self.temperature = 1.5        # Larger number means more exploration of unvisited nodes, while lower numbers will stick to the best nodes found thus far
+        super().__init__(team, name, position, bearing, True)
+        self.num_rounds = 5000        # Number of random simulations so that we can find a good candidate move.
+        self.temperature = 5.0        # Larger number means more exploration of unvisited nodes, while lower numbers will stick to the best nodes found thus far
         self.DEBUG = False
         self.DUMP = True        
 
@@ -33,9 +34,8 @@ class MCTSAgent(Agent):
             nodes.append(MCTSNode(possible_move))
 
         for cur_round in range(1, self.num_rounds + 1):
-            simulation_node = self.select_child(nodes)            
-            agent_score = self.simulate_random_game(game_state, simulation_node.move)
-            #agent_score = self.simulate_next_move(game_state, simulation_node.move)
+            simulation_node = self.select_child(nodes) 
+            agent_score = self.simulate_random_game(game_state, simulation_node.move, 50)
             if self.DEBUG:
                 print('......Explored move {0} which scored {1}.'.format(simulation_node.move, agent_score))
             simulation_node.num_rollouts += 1 
@@ -68,8 +68,10 @@ class MCTSAgent(Agent):
             print('   -> Found {0} possible moves within {1} unique rollouts, having a score of {2}'.format(len(best_moves), unique_rollouts, best_score))
             if len(best_moves) == 1:
                 print('   -> Best move was {0} for a score of {1}.'.format(best_moves[0], best_score))
+                print('   -> Ships remaining: {0}'.format(game_state.world.get_ship_count()))
             else:
                 print('   -> Multiple best moves: {0}'.format(len(best_moves)))
+                print('   -> Ships remaining: {0}'.format(game_state.world.get_ship_count()))
             print('******************************************************************************************')
             print('')
 
@@ -103,37 +105,30 @@ class MCTSAgent(Agent):
         exploration = math.sqrt(math.log((parent_rollouts + 1)) / (child_rollouts + 1)) 
         return avg_score + temperature * exploration 
 
-    def simulate_random_game(self, game_state, move):
+    def simulate_random_game(self, game_state, move, sim_world_ticks):        
         cloned_game_state = game_state.clone()  # So we don't mess with the existing gamestate
         cur_agent = cloned_game_state.world.get_ship_by_name(self.name)
-        cloned_game_state.apply_move(cur_agent, move)
-
-        while not cloned_game_state.is_over():
-            for bot in [*cloned_game_state.world.alien_ships, *cloned_game_state.world.human_ships]:
+        cloned_game_state.apply_move(cur_agent, move, True)
+        start_world_tick = cloned_game_state.world_tick 
+        
+        tick = 1
+        while not cloned_game_state.is_over() and tick <= sim_world_ticks:
+            for bot in [*cloned_game_state.world.alien_ships, *cloned_game_state.world.human_ships]:                
                 if bot.can_move():
-                    bot_move = random.choice(cloned_game_state.legal_moves(bot))
+                    bot_move = random.choice(cloned_game_state.legal_moves(bot))                    
                     if bot_move is not None:
                         cloned_game_state.apply_move(bot, bot_move) 
 
             # Saves the game state to the file and increments the world time
             cloned_game_state.next_world_tick()
 
-        return cloned_game_state.get_agent_score(self.name)
+            tick +=1
 
-    def simulate_next_move(self, game_state, move):
-        cloned_game_state = game_state.clone()  # So we don't mess with the existing gamestate
-        cur_agent = cloned_game_state.world.get_ship_by_name(self.name)
-        cur_agent.score = 0 # Reset score back to 0
-        cloned_game_state.apply_move(cur_agent, move)
+        #if start_world_tick > 1:
+        #    print('')
+        #    print('Move = {0}'.format(move))
+        #    cloned_game_state.world.get_ship_by_name(self.name).print_rewards(start_world_tick)
+        #    print('')
 
-        while not cloned_game_state.is_over() and not cur_agent.dead and not cur_agent.can_move():
-            for bot in [*cloned_game_state.world.human_ships, *cloned_game_state.world.alien_ships]:
-                if bot.can_move():
-                    bot_move = random.choice(cloned_game_state.legal_moves(bot))
-                    if bot_move is not None:
-                        cloned_game_state.apply_move(bot, bot_move) 
-
-            # Saves the game state to the file and increments the world time
-            cloned_game_state.next_world_tick()
-
-        return cloned_game_state.get_agent_score(self.name)
+        return cloned_game_state.get_agent_score_since(self.name, start_world_tick)
+    

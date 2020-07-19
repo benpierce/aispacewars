@@ -12,5 +12,5 @@ class RandomBot(Agent):
     def __init__(self, team, name, position=Point(0, 0), bearing=0):        
         super().__init__(team, name, position, bearing)
 
-    def select_move(self, game_state): 
+    def select_move(self, game_state):         
         return random.choice(game_state.legal_moves(self))
