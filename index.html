@@ -18,24 +18,14 @@
 	  <div class="info-console">Simulation Console</div>
 	  <br/> 
 	  <div>
-		<label for="aitype">AI Type:</label>
-
-		<select name="aitype" id="aitype">
-		  <option value="1">Random</option>
-		  <option value="2">Tree Search</option>
-		  <option value="3">Tree Search (Black) vs Random (Grey)</option>
-		  <option value="4">Monte Carlo (Black) vs Tree Search (Grey)</option>
-		</select>
-	  </div>
-	  <br/>
-	  <div>
 		<label for="simulation">Simulation #:</label>
 
 		<select name="simulation" id="simulation">
-		  <option value="1">1</option>
-		  <option value="2">10</option>
-		  <option value="3">100</option>
-		  <option value="4">1000</option>
+			<option value="replays/20v20_ai_vs_rand_v1.json">20v20 (Monte Carlo vs Random) #1</option>
+			<option value="replays/20v20_ai_vs_rand_v2.json">20v20 (Monte Carlo vs Random) #2</option>
+			<option value="replays/20v20_ai_vs_rand_basic_rewards.json">20v20 (Monte Carlo vs Random) - Basic Rewards</option>
+			<option value="replays/10v10_ai_vs_rand_v1.json">10v10 (Monte Carlo vs Random)</option>
+			<option value="replays/1v1_ai_vs_rand.json">1v1 (Monte Carlo vs Random)</option>
 		</select>		  
 	  </div>
 	  <br/>
@@ -70,6 +60,12 @@
 		<br/>
 		<div>
 			<b>Aliens (<span id='alienai'></span>)</b>: <span id='alienships'></span> remaining
+		</div>
+		<br/>
+		<div id="descriptionInfo">
+			<b>Description</b>
+
+			<span id="description">This is great!</span>
 		</div>
 		<br/>
 		<div id="additionalinfo">
@@ -145,9 +141,11 @@
 			'sfx/laseralien.wav',
 			'sfx/missile1.wav',
 			'sfx/missile2.wav',
-			"replays/replay1.json",
-			"replays/replay2.json",
-			'replays/replay2 - Copy.json'
+			'replays/20v20_ai_vs_rand_v1.json',
+			'replays/20v20_ai_vs_rand_v2.json',
+			'replays/20v20_ai_vs_rand_basic_rewards.json',
+			'replays/10v10_ai_vs_rand_v1.json',
+			'replays/1v1_ai_vs_rand.json'
 		])
 		.on("progress", loadProgressHandler)
 		.load(waitScreen);
@@ -194,7 +192,9 @@
 		bg = new PIXI.Sprite(PIXI.loader.resources["images/space3.png"].texture);
 	  
 		// Load simulation data
-		replay = PIXI.loader.resources['replays/replay2.json'].data; 	 
+		replayName = simulation.options[simulation.selectedIndex].value;
+		replay = PIXI.loader.resources[replayName].data; 	
+		document.getElementById('description').textContent = '';
 
 		// Load explosion animation
 		explosion = getExplosionTextures();
@@ -375,6 +375,10 @@
 		document.getElementById('debuginfo').style.display = 'block';
 		document.getElementById('humanai').textContent = debugInfo.humanai;
 		document.getElementById('alienai').textContent = debugInfo.alienai;
+		
+		if (debugInfo.description && debugInfo.description.length > 0) {
+			document.getElementById('description').textContent = debugInfo.description;
+		}
 		
 		var hs = '';
 		if (debugInfo.humanships == 1)

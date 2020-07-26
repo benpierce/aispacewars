@@ -1,4 +1,3 @@
-[
    {
       "tick": 1,
       "object_state":
@@ -67,48 +66,6 @@
             "r": "0"
          },
          {
-            "id": "Human 4LeftMissile",
-            "type": "HumanMissile",
-            "x": "450.0",
-            "y": "585.0",
-            "r": "0"
-         },
-         {
-            "id": "Human 4RightMissile",
-            "type": "HumanMissile",
-            "x": "470.0",
-            "y": "585.0",
-            "r": "0"
-         },
-         {
-            "id": "Human 4",
-            "type": "HumanShip",
-            "x": "460.0",
-            "y": "580.0",
-            "r": "0"
-         },
-         {
-            "id": "Human 5LeftMissile",
-            "type": "HumanMissile",
-            "x": "290.0",
-            "y": "585.0",
-            "r": "0"
-         },
-         {
-            "id": "Human 5RightMissile",
-            "type": "HumanMissile",
-            "x": "310.0",
-            "y": "585.0",
-            "r": "0"
-         },
-         {
-            "id": "Human 5",
-            "type": "HumanShip",
-            "x": "300.0",
-            "y": "580.0",
-            "r": "0"
-         },
-         {
             "id": "Alien 1LeftMissile",
             "type": "AlienMissile",
             "x": "390.0",
@@ -170,58 +127,3902 @@
             "x": "340.0",
             "y": "20.0",
             "r": "180"
-         },
-         {
-            "id": "Alien 4LeftMissile",
-            "type": "AlienMissile",
-            "x": "470.0",
-            "y": "15.0",
-            "r": "180"
-         },
-         {
-            "id": "Alien 4RightMissile",
-            "type": "AlienMissile",
-            "x": "450.0",
-            "y": "15.0",
-            "r": "180"
-         },
-         {
-            "id": "Alien 4",
-            "type": "AlienShip",
-            "x": "460.0",
-            "y": "20.0",
-            "r": "180"
-         },
-         {
-            "id": "Alien 5LeftMissile",
-            "type": "AlienMissile",
-            "x": "310.0",
-            "y": "15.0",
-            "r": "180"
-         },
-         {
-            "id": "Alien 5RightMissile",
-            "type": "AlienMissile",
-            "x": "290.0",
-            "y": "15.0",
-            "r": "180"
-         },
-         {
-            "id": "Alien 5",
-            "type": "AlienShip",
-            "x": "300.0",
-            "y": "20.0",
-            "r": "180"
          }
       ]
       ,"debug_info":
        {
           "humanai": "MCTSAgent",
-          "alienai": "MCTSAgent",
-          "humanships": "5",
-          "alienships": "5",
+          "alienai": "RandomBot",
+          "humanships": "3",
+          "alienships": "3",
           "additionalInfo":
           [
+          ]
+       }
+   },
+   {
+      "tick": 2,
+      "object_state":
+      [
+         {
+            "id": "Human 1LeftMissile",
+            "type": "HumanMissile",
+            "x": "368.82383082093",
+            "y": "580.3053563177763",
+            "r": "25.0"
+         },
+         {
+            "id": "Human 1RightMissile",
+            "type": "HumanMissile",
+            "x": "386.949986561663",
+            "y": "588.7577215525903",
+            "r": "25.0"
+         },
+         {
+            "id": "Human 1",
+            "type": "HumanShip",
+            "x": "380.0",
+            "y": "580.0",
+            "r": "25.0"
+         },
+         {
+            "id": "Human 2LeftMissile",
+            "type": "HumanMissile",
+            "x": "415.51870920234865",
+            "y": "590.2429503946316",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2RightMissile",
+            "type": "HumanMissile",
+            "x": "430.88313479429615",
+            "y": "577.439262401342",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2",
+            "type": "HumanShip",
+            "x": "420.0",
+            "y": "580.0",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 3LeftMissile",
+            "type": "HumanMissile",
+            "x": "333.050013438337",
+            "y": "588.7577215525903",
+            "r": "335.0"
+         },
+         {
+            "id": "Human 3RightMissile",
+            "type": "HumanMissile",
+            "x": "351.17616917907",
+            "y": "580.3053563177763",
+            "r": "335.0"
+         },
+         {
+            "id": "Human 3",
+            "type": "HumanShip",
+            "x": "340.0",
+            "y": "580.0",
+            "r": "335.0"
+         },
+         {
+            "id": "Alien 1LeftMissile",
+            "type": "AlienMissile",
+            "x": "391.172679496132",
+            "y": "19.586197055698815",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1RightMissile",
+            "type": "AlienMissile",
+            "x": "372.9653499468799",
+            "y": "11.310138169675138",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1",
+            "type": "AlienShip",
+            "x": "380.0",
+            "y": "20.0",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 2LeftMissile",
+            "type": "AlienMissile",
+            "x": "431.0679718105893",
+            "y": "18.418861169915814",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2RightMissile",
+            "type": "AlienMissile",
+            "x": "412.09430584957903",
+            "y": "12.09430584957905",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2",
+            "type": "AlienShip",
+            "x": "420.0",
+            "y": "20.0",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 3LeftMissile",
+            "type": "AlienMissile",
+            "x": "346.7082039324994",
+            "y": "11.055728090000844",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3RightMissile",
+            "type": "AlienMissile",
+            "x": "328.819660112501",
+            "y": "19.999999999999996",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3",
+            "type": "AlienShip",
+            "x": "340.0",
+            "y": "20.0",
+            "r": "153.43494882292202"
+         }
+      ]
+      ,"debug_info":
+       {
+          "humanai": "MCTSAgent",
+          "alienai": "RandomBot",
+          "humanships": "3",
+          "alienships": "3",
+          "additionalInfo":
+          [
+             {
+                "info": "World Tick: 2"
+             },
+             {
+                "info": "Tick Processing Time (ms): 660600"
+             }
+          ]
+       }
+   },
+   {
+      "tick": 3,
+      "object_state":
+      [
+         {
+            "id": "Human 1LeftMissile",
+            "type": "HumanMissile",
+            "x": "369.7419016875397",
+            "y": "575.5534936172429",
+            "r": "50.0"
+         },
+         {
+            "id": "Human 1RightMissile",
+            "type": "HumanMissile",
+            "x": "382.5976538812705",
+            "y": "590.8743824796225",
+            "r": "50.0"
+         },
+         {
+            "id": "Human 1",
+            "type": "HumanShip",
+            "x": "380.0",
+            "y": "580.0",
+            "r": "50.0"
+         },
+         {
+            "id": "Human 2LeftMissile",
+            "type": "HumanMissile",
+            "x": "399.5140992107366",
+            "y": "571.0374184046973",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2RightMissile",
+            "type": "HumanMissile",
+            "x": "414.8785248026841",
+            "y": "558.2337304114077",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2",
+            "type": "HumanShip",
+            "x": "403.995390008388",
+            "y": "560.7944680100657",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 3LeftMissile",
+            "type": "HumanMissile",
+            "x": "337.4023461187295",
+            "y": "590.8743824796225",
+            "r": "310.0"
+         },
+         {
+            "id": "Human 3RightMissile",
+            "type": "HumanMissile",
+            "x": "350.2580983124603",
+            "y": "575.5534936172429",
+            "r": "310.0"
+         },
+         {
+            "id": "Human 3",
+            "type": "HumanShip",
+            "x": "340.0",
+            "y": "580.0",
+            "r": "310.0"
+         },
+         {
+            "id": "Alien 1LeftMissile",
+            "type": "AlienMissile",
+            "x": "380.8276058886024",
+            "y": "42.34535899226394",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1RightMissile",
+            "type": "AlienMissile",
+            "x": "362.6202763393503",
+            "y": "34.06930010624026",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1",
+            "type": "AlienShip",
+            "x": "369.65492639247043",
+            "y": "42.75916193656512",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 2LeftMissile",
+            "type": "AlienMissile",
+            "x": "423.16227766016834",
+            "y": "42.13594362117866",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2RightMissile",
+            "type": "AlienMissile",
+            "x": "404.18861169915806",
+            "y": "35.8113883008419",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2",
+            "type": "AlienShip",
+            "x": "412.09430584957903",
+            "y": "43.71708245126285",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 3LeftMissile",
+            "type": "AlienMissile",
+            "x": "357.88854381999835",
+            "y": "33.416407864998746",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3RightMissile",
+            "type": "AlienMissile",
+            "x": "340.0",
+            "y": "42.3606797749979",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3",
+            "type": "AlienShip",
+            "x": "351.180339887499",
+            "y": "42.3606797749979",
+            "r": "153.43494882292202"
+         }
+      ]
+      ,"debug_info":
+       {
+          "humanai": "MCTSAgent",
+          "alienai": "RandomBot",
+          "humanships": "3",
+          "alienships": "3",
+          "additionalInfo":
+          [
+             {
+                "info": "World Tick: 3"
+             },
+             {
+                "info": "Tick Processing Time (ms): 3"
+             }
+          ]
+       }
+   },
+   {
+      "tick": 4,
+      "object_state":
+      [
+         {
+            "id": "Human 1LeftMissile",
+            "type": "HumanMissile",
+            "x": "373.13593527016354",
+            "y": "571.1747739187817",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1RightMissile",
+            "type": "HumanMissile",
+            "x": "377.0582579729272",
+            "y": "590.7863874326001",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1",
+            "type": "HumanShip",
+            "x": "380.0",
+            "y": "580.0",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 2LeftMissile",
+            "type": "HumanMissile",
+            "x": "383.50948921912465",
+            "y": "551.831886414763",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2RightMissile",
+            "type": "HumanMissile",
+            "x": "398.87391481107215",
+            "y": "539.0281984214733",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2",
+            "type": "HumanShip",
+            "x": "387.990780016776",
+            "y": "541.5889360201313",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 3LeftMissile",
+            "type": "HumanMissile",
+            "x": "343.7210420376762",
+            "y": "590.5429524400827",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Human 3RightMissile",
+            "type": "HumanMissile",
+            "x": "346.20173672946044",
+            "y": "570.6973949058093",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Human 3",
+            "type": "HumanShip",
+            "x": "340.0",
+            "y": "580.0",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Alien 1LeftMissile",
+            "type": "AlienMissile",
+            "x": "370.4825322810728",
+            "y": "65.10452092882906",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1RightMissile",
+            "type": "AlienMissile",
+            "x": "352.2752027318207",
+            "y": "56.828462042805384",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1",
+            "type": "AlienShip",
+            "x": "359.3098527849408",
+            "y": "65.51832387313024",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 2LeftMissile",
+            "type": "AlienMissile",
+            "x": "415.2565835097474",
+            "y": "65.85302607244151",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2RightMissile",
+            "type": "AlienMissile",
+            "x": "396.2829175487371",
+            "y": "59.528470752104745",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2",
+            "type": "AlienShip",
+            "x": "404.18861169915806",
+            "y": "67.4341649025257",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 3LeftMissile",
+            "type": "AlienMissile",
+            "x": "369.0688837074973",
+            "y": "55.77708763999664",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3RightMissile",
+            "type": "AlienMissile",
+            "x": "351.180339887499",
+            "y": "64.7213595499958",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3",
+            "type": "AlienShip",
+            "x": "362.36067977499795",
+            "y": "64.7213595499958",
+            "r": "153.43494882292202"
+         }
+      ]
+      ,"debug_info":
+       {
+          "humanai": "MCTSAgent",
+          "alienai": "RandomBot",
+          "humanships": "3",
+          "alienships": "3",
+          "additionalInfo":
+          [
+             {
+                "info": "World Tick: 4"
+             },
+             {
+                "info": "Tick Processing Time (ms): 0"
+             }
+          ]
+       }
+   },
+   {
+      "tick": 5,
+      "object_state":
+      [
+         {
+            "id": "Human 1LeftMissile",
+            "type": "HumanMissile",
+            "x": "397.6504521624365",
+            "y": "566.2718705403271",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1RightMissile",
+            "type": "HumanMissile",
+            "x": "401.5727748652002",
+            "y": "585.8834840541455",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1",
+            "type": "HumanShip",
+            "x": "404.514516892273",
+            "y": "575.0970966215453",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 2LeftMissile",
+            "type": "HumanMissile",
+            "x": "367.5048792275127",
+            "y": "532.6263544248286",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2RightMissile",
+            "type": "HumanMissile",
+            "x": "382.8693048194602",
+            "y": "519.822666431539",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2",
+            "type": "HumanShip",
+            "x": "371.98617002516403",
+            "y": "522.383404030197",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 3LeftMissile",
+            "type": "HumanMissile",
+            "x": "318.91409511983454",
+            "y": "587.4420840753525",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Human 3RightMissile",
+            "type": "HumanMissile",
+            "x": "321.39478981161875",
+            "y": "567.5965265410791",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Human 3",
+            "type": "HumanShip",
+            "x": "315.1930530821583",
+            "y": "576.8991316352698",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Alien 1LeftMissile",
+            "type": "AlienMissile",
+            "x": "360.13745867354316",
+            "y": "87.86368286539418",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1RightMissile",
+            "type": "AlienMissile",
+            "x": "341.93012912429106",
+            "y": "79.5876239793705",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1",
+            "type": "AlienShip",
+            "x": "348.9647791774112",
+            "y": "88.27748580969536",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 2LeftMissile",
+            "type": "AlienMissile",
+            "x": "407.3508893593264",
+            "y": "89.57010852370435",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2RightMissile",
+            "type": "AlienMissile",
+            "x": "388.3772233983161",
+            "y": "83.24555320336758",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2",
+            "type": "AlienShip",
+            "x": "396.2829175487371",
+            "y": "91.15124735378853",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 3LeftMissile",
+            "type": "AlienMissile",
+            "x": "380.24922359499624",
+            "y": "78.13776741499454",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3RightMissile",
+            "type": "AlienMissile",
+            "x": "362.3606797749979",
+            "y": "87.0820393249937",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3",
+            "type": "AlienShip",
+            "x": "373.54101966249686",
+            "y": "87.0820393249937",
+            "r": "153.43494882292202"
+         }
+      ]
+      ,"debug_info":
+       {
+          "humanai": "MCTSAgent",
+          "alienai": "RandomBot",
+          "humanships": "3",
+          "alienships": "3",
+          "additionalInfo":
+          [
+             {
+                "info": "World Tick: 5"
+             },
+             {
+                "info": "Tick Processing Time (ms): 1"
+             }
+          ]
+       }
+   },
+   {
+      "tick": 6,
+      "object_state":
+      [
+         {
+            "id": "Human 1LeftMissile",
+            "type": "HumanMissile",
+            "x": "422.1649690547095",
+            "y": "561.3689671618724",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1RightMissile",
+            "type": "HumanMissile",
+            "x": "426.08729175747317",
+            "y": "580.9805806756908",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1",
+            "type": "HumanShip",
+            "x": "429.02903378454596",
+            "y": "570.1941932430907",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 2LeftMissile",
+            "type": "HumanMissile",
+            "x": "351.5002692359007",
+            "y": "513.4208224348943",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2RightMissile",
+            "type": "HumanMissile",
+            "x": "366.8646948278482",
+            "y": "500.6171344416046",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2",
+            "type": "HumanShip",
+            "x": "355.98156003355206",
+            "y": "503.17787204026257",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 3LeftMissile",
+            "type": "HumanMissile",
+            "x": "294.10714820199286",
+            "y": "584.3412157106222",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Human 3RightMissile",
+            "type": "HumanMissile",
+            "x": "296.58784289377707",
+            "y": "564.4956581763489",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Human 3",
+            "type": "HumanShip",
+            "x": "290.38610616431663",
+            "y": "573.7982632705396",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Alien 1LeftMissile",
+            "type": "AlienMissile",
+            "x": "349.7923850660136",
+            "y": "110.6228448019593",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1RightMissile",
+            "type": "AlienMissile",
+            "x": "331.5850555167615",
+            "y": "102.34678591593563",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1",
+            "type": "AlienShip",
+            "x": "338.6197055698816",
+            "y": "111.03664774626048",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 2LeftMissile",
+            "type": "AlienMissile",
+            "x": "399.44519520890543",
+            "y": "113.28719097496719",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2RightMissile",
+            "type": "AlienMissile",
+            "x": "380.47152924789515",
+            "y": "106.96263565463042",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2",
+            "type": "AlienShip",
+            "x": "388.3772233983161",
+            "y": "114.86832980505137",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 3LeftMissile",
+            "type": "AlienMissile",
+            "x": "391.4295634824952",
+            "y": "100.49844718999243",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3RightMissile",
+            "type": "AlienMissile",
+            "x": "373.54101966249686",
+            "y": "109.44271909999159",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3",
+            "type": "AlienShip",
+            "x": "384.72135954999584",
+            "y": "109.44271909999159",
+            "r": "153.43494882292202"
+         }
+      ]
+      ,"debug_info":
+       {
+          "humanai": "MCTSAgent",
+          "alienai": "RandomBot",
+          "humanships": "3",
+          "alienships": "3",
+          "additionalInfo":
+          [
+             {
+                "info": "World Tick: 6"
+             },
+             {
+                "info": "Tick Processing Time (ms): 1"
+             }
+          ]
+       }
+   },
+   {
+      "tick": 7,
+      "object_state":
+      [
+         {
+            "id": "Human 1LeftMissile",
+            "type": "HumanMissile",
+            "x": "446.67948594698254",
+            "y": "556.4660637834179",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1RightMissile",
+            "type": "HumanMissile",
+            "x": "450.6018086497462",
+            "y": "576.0776772972363",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1",
+            "type": "HumanShip",
+            "x": "453.543550676819",
+            "y": "565.2912898646362",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 2LeftMissile",
+            "type": "HumanMissile",
+            "x": "335.49565924428873",
+            "y": "494.21529044495986",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2RightMissile",
+            "type": "HumanMissile",
+            "x": "350.86008483623624",
+            "y": "481.4116024516702",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2",
+            "type": "HumanShip",
+            "x": "339.9769500419401",
+            "y": "483.97234005032817",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 3LeftMissile",
+            "type": "HumanMissile",
+            "x": "269.30020128415117",
+            "y": "581.240347345892",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Human 3RightMissile",
+            "type": "HumanMissile",
+            "x": "271.7808959759354",
+            "y": "561.3947898116187",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Human 3",
+            "type": "HumanShip",
+            "x": "265.57915924647494",
+            "y": "570.6973949058093",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Alien 1LeftMissile",
+            "type": "AlienMissile",
+            "x": "339.447311458484",
+            "y": "133.3820067385244",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1RightMissile",
+            "type": "AlienMissile",
+            "x": "321.2399819092319",
+            "y": "125.10594785250073",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1",
+            "type": "AlienShip",
+            "x": "328.27463196235203",
+            "y": "133.7958096828256",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 2LeftMissile",
+            "type": "AlienMissile",
+            "x": "391.5395010584845",
+            "y": "137.00427342623001",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2RightMissile",
+            "type": "AlienMissile",
+            "x": "372.56583509747423",
+            "y": "130.67971810589327",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2",
+            "type": "AlienShip",
+            "x": "380.4715292478952",
+            "y": "138.5854122563142",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 3LeftMissile",
+            "type": "AlienMissile",
+            "x": "402.6099033699942",
+            "y": "122.85912696499032",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3RightMissile",
+            "type": "AlienMissile",
+            "x": "384.72135954999584",
+            "y": "131.80339887498948",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3",
+            "type": "AlienShip",
+            "x": "395.9016994374948",
+            "y": "131.80339887498948",
+            "r": "153.43494882292202"
+         }
+      ]
+      ,"debug_info":
+       {
+          "humanai": "MCTSAgent",
+          "alienai": "RandomBot",
+          "humanships": "3",
+          "alienships": "3",
+          "additionalInfo":
+          [
+             {
+                "info": "World Tick: 7"
+             },
+             {
+                "info": "Tick Processing Time (ms): 1"
+             }
+          ]
+       }
+   },
+   {
+      "tick": 8,
+      "object_state":
+      [
+         {
+            "id": "Human 1LeftMissile",
+            "type": "HumanMissile",
+            "x": "471.1940028392555",
+            "y": "551.5631604049632",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1RightMissile",
+            "type": "HumanMissile",
+            "x": "475.1163255420192",
+            "y": "571.1747739187816",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1",
+            "type": "HumanShip",
+            "x": "478.058067569092",
+            "y": "560.3883864861815",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 2LeftMissile",
+            "type": "HumanMissile",
+            "x": "319.49104925267676",
+            "y": "475.00975845502546",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2RightMissile",
+            "type": "HumanMissile",
+            "x": "334.85547484462427",
+            "y": "462.2060704617358",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2",
+            "type": "HumanShip",
+            "x": "323.9723400503281",
+            "y": "464.76680806039377",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 3LeftMissile",
+            "type": "HumanMissile",
+            "x": "244.49325436630951",
+            "y": "578.1394789811618",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Human 3RightMissile",
+            "type": "HumanMissile",
+            "x": "246.9739490580937",
+            "y": "558.2939214468885",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Human 3",
+            "type": "HumanShip",
+            "x": "240.77221232863326",
+            "y": "567.5965265410791",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Alien 1LeftMissile",
+            "type": "AlienMissile",
+            "x": "329.1022378509544",
+            "y": "156.14116867508952",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1RightMissile",
+            "type": "AlienMissile",
+            "x": "310.8949083017023",
+            "y": "147.86510978906583",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1",
+            "type": "AlienShip",
+            "x": "317.9295583548224",
+            "y": "156.5549716193907",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 2LeftMissile",
+            "type": "AlienMissile",
+            "x": "383.63380690806355",
+            "y": "160.72135587749287",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2RightMissile",
+            "type": "AlienMissile",
+            "x": "364.66014094705326",
+            "y": "154.39680055715613",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2",
+            "type": "AlienShip",
+            "x": "372.56583509747423",
+            "y": "162.30249470757707",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 3LeftMissile",
+            "type": "AlienMissile",
+            "x": "413.7902432574931",
+            "y": "145.21980673998823",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3RightMissile",
+            "type": "AlienMissile",
+            "x": "395.90169943749476",
+            "y": "154.16407864998737",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3",
+            "type": "AlienShip",
+            "x": "407.08203932499373",
+            "y": "154.16407864998737",
+            "r": "153.43494882292202"
+         }
+      ]
+      ,"debug_info":
+       {
+          "humanai": "MCTSAgent",
+          "alienai": "RandomBot",
+          "humanships": "3",
+          "alienships": "3",
+          "additionalInfo":
+          [
+             {
+                "info": "World Tick: 8"
+             },
+             {
+                "info": "Tick Processing Time (ms): 0"
+             }
+          ]
+       }
+   },
+   {
+      "tick": 9,
+      "object_state":
+      [
+         {
+            "id": "Human 1LeftMissile",
+            "type": "HumanMissile",
+            "x": "495.7085197315285",
+            "y": "546.6602570265087",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1RightMissile",
+            "type": "HumanMissile",
+            "x": "499.63084243429216",
+            "y": "566.2718705403271",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1",
+            "type": "HumanShip",
+            "x": "502.57258446136495",
+            "y": "555.485483107727",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 2LeftMissile",
+            "type": "HumanMissile",
+            "x": "303.4864392610648",
+            "y": "455.80422646509106",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2RightMissile",
+            "type": "HumanMissile",
+            "x": "318.8508648530123",
+            "y": "443.0005384718014",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2",
+            "type": "HumanShip",
+            "x": "307.96773005871614",
+            "y": "445.56127607045937",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 3LeftMissile",
+            "type": "HumanMissile",
+            "x": "219.68630744846783",
+            "y": "575.0386106164316",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Human 3RightMissile",
+            "type": "HumanMissile",
+            "x": "222.167002140252",
+            "y": "555.1930530821583",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Human 3",
+            "type": "HumanShip",
+            "x": "215.96526541079157",
+            "y": "564.4956581763489",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Alien 1LeftMissile",
+            "type": "AlienMissile",
+            "x": "318.75716424342477",
+            "y": "178.90033061165465",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1RightMissile",
+            "type": "AlienMissile",
+            "x": "300.54983469417266",
+            "y": "170.62427172563096",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1",
+            "type": "AlienShip",
+            "x": "307.5844847472928",
+            "y": "179.31413355595583",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 2LeftMissile",
+            "type": "AlienMissile",
+            "x": "375.7281127576426",
+            "y": "184.43843832875572",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2RightMissile",
+            "type": "AlienMissile",
+            "x": "356.7544467966323",
+            "y": "178.11388300841898",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2",
+            "type": "AlienShip",
+            "x": "364.66014094705326",
+            "y": "186.01957715883992",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 3LeftMissile",
+            "type": "AlienMissile",
+            "x": "424.970583144992",
+            "y": "167.58048651498612",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3RightMissile",
+            "type": "AlienMissile",
+            "x": "407.0820393249937",
+            "y": "176.52475842498527",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3",
+            "type": "AlienShip",
+            "x": "418.26237921249265",
+            "y": "176.52475842498527",
+            "r": "153.43494882292202"
+         }
+      ]
+      ,"debug_info":
+       {
+          "humanai": "MCTSAgent",
+          "alienai": "RandomBot",
+          "humanships": "3",
+          "alienships": "3",
+          "additionalInfo":
+          [
+             {
+                "info": "World Tick: 9"
+             },
+             {
+                "info": "Tick Processing Time (ms): 0"
+             }
+          ]
+       }
+   },
+   {
+      "tick": 10,
+      "object_state":
+      [
+         {
+            "id": "Human 1LeftMissile",
+            "type": "HumanMissile",
+            "x": "520.2230366238016",
+            "y": "541.757353648054",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1RightMissile",
+            "type": "HumanMissile",
+            "x": "524.1453593265652",
+            "y": "561.3689671618724",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1",
+            "type": "HumanShip",
+            "x": "527.087101353638",
+            "y": "550.5825797292723",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 2LeftMissile",
+            "type": "HumanMissile",
+            "x": "287.4818292694528",
+            "y": "436.59869447515666",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2RightMissile",
+            "type": "HumanMissile",
+            "x": "302.8462548614003",
+            "y": "423.795006481867",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2",
+            "type": "HumanShip",
+            "x": "291.96312006710417",
+            "y": "426.35574408052497",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 3LeftMissile",
+            "type": "HumanMissile",
+            "x": "194.87936053062614",
+            "y": "571.9377422517014",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Human 3RightMissile",
+            "type": "HumanMissile",
+            "x": "197.36005522241032",
+            "y": "552.092184717428",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Human 3",
+            "type": "HumanShip",
+            "x": "191.1583184929499",
+            "y": "561.3947898116187",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Alien 1LeftMissile",
+            "type": "AlienMissile",
+            "x": "308.4120906358952",
+            "y": "201.65949254821976",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1RightMissile",
+            "type": "AlienMissile",
+            "x": "290.2047610866431",
+            "y": "193.38343366219607",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1",
+            "type": "AlienShip",
+            "x": "297.2394111397632",
+            "y": "202.07329549252094",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 2LeftMissile",
+            "type": "AlienMissile",
+            "x": "367.82241860722166",
+            "y": "208.15552078001858",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2RightMissile",
+            "type": "AlienMissile",
+            "x": "348.8487526462114",
+            "y": "201.83096545968183",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2",
+            "type": "AlienShip",
+            "x": "356.75444679663235",
+            "y": "209.73665961010278",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 3LeftMissile",
+            "type": "AlienMissile",
+            "x": "436.15092303249094",
+            "y": "189.941166289984",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3RightMissile",
+            "type": "AlienMissile",
+            "x": "418.2623792124926",
+            "y": "198.88543819998316",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3",
+            "type": "AlienShip",
+            "x": "429.44271909999156",
+            "y": "198.88543819998316",
+            "r": "153.43494882292202"
+         }
+      ]
+      ,"debug_info":
+       {
+          "humanai": "MCTSAgent",
+          "alienai": "RandomBot",
+          "humanships": "3",
+          "alienships": "3",
+          "additionalInfo":
+          [
+             {
+                "info": "World Tick: 10"
+             },
+             {
+                "info": "Tick Processing Time (ms): 0"
+             }
+          ]
+       }
+   },
+   {
+      "tick": 11,
+      "object_state":
+      [
+         {
+            "id": "Human 1LeftMissile",
+            "type": "HumanMissile",
+            "x": "544.7375535160746",
+            "y": "536.8544502695995",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1RightMissile",
+            "type": "HumanMissile",
+            "x": "548.6598762188382",
+            "y": "556.4660637834179",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1",
+            "type": "HumanShip",
+            "x": "551.601618245911",
+            "y": "545.6796763508178",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 2LeftMissile",
+            "type": "HumanMissile",
+            "x": "271.47721927784085",
+            "y": "417.39316248522226",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2RightMissile",
+            "type": "HumanMissile",
+            "x": "286.84164486978835",
+            "y": "404.5894744919326",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2",
+            "type": "HumanShip",
+            "x": "275.9585100754922",
+            "y": "407.15021209059057",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 3LeftMissile",
+            "type": "HumanMissile",
+            "x": "170.07241361278446",
+            "y": "568.8368738869711",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Human 3RightMissile",
+            "type": "HumanMissile",
+            "x": "172.55310830456864",
+            "y": "548.9913163526978",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Human 3",
+            "type": "HumanShip",
+            "x": "166.3513715751082",
+            "y": "558.2939214468885",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Alien 1LeftMissile",
+            "type": "AlienMissile",
+            "x": "298.0670170283656",
+            "y": "224.41865448478487",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1RightMissile",
+            "type": "AlienMissile",
+            "x": "279.8596874791135",
+            "y": "216.14259559876118",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1",
+            "type": "AlienShip",
+            "x": "286.89433753223364",
+            "y": "224.83245742908605",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 2LeftMissile",
+            "type": "AlienMissile",
+            "x": "359.91672445680075",
+            "y": "231.87260323128143",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2RightMissile",
+            "type": "AlienMissile",
+            "x": "340.94305849579047",
+            "y": "225.5480479109447",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2",
+            "type": "AlienShip",
+            "x": "348.84875264621144",
+            "y": "233.45374206136563",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 3LeftMissile",
+            "type": "AlienMissile",
+            "x": "447.3312629199899",
+            "y": "212.3018460649819",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3RightMissile",
+            "type": "AlienMissile",
+            "x": "429.44271909999156",
+            "y": "221.24611797498105",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3",
+            "type": "AlienShip",
+            "x": "440.62305898749054",
+            "y": "221.24611797498105",
+            "r": "153.43494882292202"
+         }
+      ]
+      ,"debug_info":
+       {
+          "humanai": "MCTSAgent",
+          "alienai": "RandomBot",
+          "humanships": "3",
+          "alienships": "3",
+          "additionalInfo":
+          [
+             {
+                "info": "World Tick: 11"
+             },
+             {
+                "info": "Tick Processing Time (ms): 0"
+             }
+          ]
+       }
+   },
+   {
+      "tick": 12,
+      "object_state":
+      [
+         {
+            "id": "Human 1LeftMissile",
+            "type": "HumanMissile",
+            "x": "569.2520704083477",
+            "y": "531.9515468911449",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1RightMissile",
+            "type": "HumanMissile",
+            "x": "573.1743931111113",
+            "y": "551.5631604049632",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1",
+            "type": "HumanShip",
+            "x": "576.1161351381841",
+            "y": "540.7767729723631",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 2LeftMissile",
+            "type": "HumanMissile",
+            "x": "255.47260928622882",
+            "y": "398.18763049528786",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2RightMissile",
+            "type": "HumanMissile",
+            "x": "270.8370348781763",
+            "y": "385.3839425019982",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2",
+            "type": "HumanShip",
+            "x": "259.95390008388017",
+            "y": "387.94468010065617",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 3LeftMissile",
+            "type": "HumanMissile",
+            "x": "145.26546669494277",
+            "y": "565.7360055222409",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Human 3RightMissile",
+            "type": "HumanMissile",
+            "x": "147.74616138672695",
+            "y": "545.8904479879676",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Human 3",
+            "type": "HumanShip",
+            "x": "141.54442465726652",
+            "y": "555.1930530821583",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Alien 1LeftMissile",
+            "type": "AlienMissile",
+            "x": "287.721943420836",
+            "y": "247.17781642135",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1RightMissile",
+            "type": "AlienMissile",
+            "x": "269.5146138715839",
+            "y": "238.9017575353263",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1",
+            "type": "AlienShip",
+            "x": "276.549263924704",
+            "y": "247.59161936565118",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 2LeftMissile",
+            "type": "AlienMissile",
+            "x": "352.0110303063798",
+            "y": "255.58968568254429",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2RightMissile",
+            "type": "AlienMissile",
+            "x": "333.0373643453695",
+            "y": "249.26513036220754",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2",
+            "type": "AlienShip",
+            "x": "340.94305849579047",
+            "y": "257.1708245126285",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 3LeftMissile",
+            "type": "AlienMissile",
+            "x": "458.5116028074889",
+            "y": "234.6625258399798",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3RightMissile",
+            "type": "AlienMissile",
+            "x": "440.62305898749054",
+            "y": "243.60679774997894",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3",
+            "type": "AlienShip",
+            "x": "451.8033988749895",
+            "y": "243.60679774997894",
+            "r": "153.43494882292202"
+         }
+      ]
+      ,"debug_info":
+       {
+          "humanai": "MCTSAgent",
+          "alienai": "RandomBot",
+          "humanships": "3",
+          "alienships": "3",
+          "additionalInfo":
+          [
+             {
+                "info": "World Tick: 12"
+             },
+             {
+                "info": "Tick Processing Time (ms): 1"
+             }
+          ]
+       }
+   },
+   {
+      "tick": 13,
+      "object_state":
+      [
+         {
+            "id": "Human 1LeftMissile",
+            "type": "HumanMissile",
+            "x": "593.7665873006207",
+            "y": "527.0486435126903",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1RightMissile",
+            "type": "HumanMissile",
+            "x": "597.6889100033843",
+            "y": "546.6602570265087",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1",
+            "type": "HumanShip",
+            "x": "600.6306520304571",
+            "y": "535.8738695939086",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 2LeftMissile",
+            "type": "HumanMissile",
+            "x": "239.46799929461682",
+            "y": "378.98209850535346",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2RightMissile",
+            "type": "HumanMissile",
+            "x": "254.83242488656433",
+            "y": "366.1784105120638",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2",
+            "type": "HumanShip",
+            "x": "243.94929009226817",
+            "y": "368.73914811072177",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 3LeftMissile",
+            "type": "HumanMissile",
+            "x": "120.45851977710109",
+            "y": "562.6351371575107",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Human 3RightMissile",
+            "type": "HumanMissile",
+            "x": "122.93921446888525",
+            "y": "542.7895796232374",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Human 3",
+            "type": "HumanShip",
+            "x": "116.73747773942483",
+            "y": "552.092184717428",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Alien 1LeftMissile",
+            "type": "AlienMissile",
+            "x": "277.37686981330637",
+            "y": "269.9369783579151",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1RightMissile",
+            "type": "AlienMissile",
+            "x": "259.16954026405426",
+            "y": "261.6609194718915",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1",
+            "type": "AlienShip",
+            "x": "266.2041903171744",
+            "y": "270.3507813022163",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 2LeftMissile",
+            "type": "AlienMissile",
+            "x": "344.1053361559588",
+            "y": "279.30676813380717",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2RightMissile",
+            "type": "AlienMissile",
+            "x": "325.1316701949485",
+            "y": "272.98221281347037",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2",
+            "type": "AlienShip",
+            "x": "333.0373643453695",
+            "y": "280.88790696389134",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 3LeftMissile",
+            "type": "AlienMissile",
+            "x": "469.6919426949878",
+            "y": "257.0232056149777",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3RightMissile",
+            "type": "AlienMissile",
+            "x": "451.80339887498945",
+            "y": "265.96747752497686",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3",
+            "type": "AlienShip",
+            "x": "462.98373876248843",
+            "y": "265.96747752497686",
+            "r": "153.43494882292202"
+         }
+      ]
+      ,"debug_info":
+       {
+          "humanai": "MCTSAgent",
+          "alienai": "RandomBot",
+          "humanships": "3",
+          "alienships": "3",
+          "additionalInfo":
+          [
+             {
+                "info": "World Tick: 13"
+             },
+             {
+                "info": "Tick Processing Time (ms): 1"
+             }
+          ]
+       }
+   },
+   {
+      "tick": 14,
+      "object_state":
+      [
+         {
+            "id": "Human 1LeftMissile",
+            "type": "HumanMissile",
+            "x": "618.2811041928937",
+            "y": "522.1457401342357",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1RightMissile",
+            "type": "HumanMissile",
+            "x": "622.2034268956573",
+            "y": "541.757353648054",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1",
+            "type": "HumanShip",
+            "x": "625.1451689227301",
+            "y": "530.9709662154539",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 2LeftMissile",
+            "type": "HumanMissile",
+            "x": "223.46338930300482",
+            "y": "359.77656651541906",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2RightMissile",
+            "type": "HumanMissile",
+            "x": "238.82781489495233",
+            "y": "346.9728785221294",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2",
+            "type": "HumanShip",
+            "x": "227.94468010065617",
+            "y": "349.53361612078737",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 3LeftMissile",
+            "type": "HumanMissile",
+            "x": "95.6515728592594",
+            "y": "559.5342687927805",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Human 3RightMissile",
+            "type": "HumanMissile",
+            "x": "98.13226755104357",
+            "y": "539.6887112585072",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Human 3",
+            "type": "HumanShip",
+            "x": "91.93053082158315",
+            "y": "548.9913163526978",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Alien 1LeftMissile",
+            "type": "AlienMissile",
+            "x": "267.03179620577674",
+            "y": "292.69614029448024",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1RightMissile",
+            "type": "AlienMissile",
+            "x": "248.82446665652463",
+            "y": "284.42008140845655",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1",
+            "type": "AlienShip",
+            "x": "255.85911670964478",
+            "y": "293.10994323878145",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 2LeftMissile",
+            "type": "AlienMissile",
+            "x": "336.1996420055379",
+            "y": "303.02385058507",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2RightMissile",
+            "type": "AlienMissile",
+            "x": "317.2259760445276",
+            "y": "296.6992952647332",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2",
+            "type": "AlienShip",
+            "x": "325.1316701949486",
+            "y": "304.6049894151542",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 3LeftMissile",
+            "type": "AlienMissile",
+            "x": "480.8722825824868",
+            "y": "279.3838853899756",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3RightMissile",
+            "type": "AlienMissile",
+            "x": "462.98373876248843",
+            "y": "288.32815729997475",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3",
+            "type": "AlienShip",
+            "x": "474.1640786499874",
+            "y": "288.32815729997475",
+            "r": "153.43494882292202"
+         }
+      ]
+      ,"debug_info":
+       {
+          "humanai": "MCTSAgent",
+          "alienai": "RandomBot",
+          "humanships": "3",
+          "alienships": "3",
+          "additionalInfo":
+          [
+             {
+                "info": "World Tick: 14"
+             },
+             {
+                "info": "Tick Processing Time (ms): 0"
+             }
+          ]
+       }
+   },
+   {
+      "tick": 15,
+      "object_state":
+      [
+         {
+            "id": "Human 1LeftMissile",
+            "type": "HumanMissile",
+            "x": "642.7956210851668",
+            "y": "517.2428367557811",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1RightMissile",
+            "type": "HumanMissile",
+            "x": "646.7179437879304",
+            "y": "536.8544502695995",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1",
+            "type": "HumanShip",
+            "x": "649.6596858150032",
+            "y": "526.0680628369994",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 2LeftMissile",
+            "type": "HumanMissile",
+            "x": "207.45877931139282",
+            "y": "340.57103452548466",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2RightMissile",
+            "type": "HumanMissile",
+            "x": "222.82320490334033",
+            "y": "327.767346532195",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2",
+            "type": "HumanShip",
+            "x": "211.94007010904417",
+            "y": "330.328084130853",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 3LeftMissile",
+            "type": "HumanMissile",
+            "x": "70.84462594141772",
+            "y": "556.4334004280503",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Human 3RightMissile",
+            "type": "HumanMissile",
+            "x": "73.32532063320188",
+            "y": "536.587842893777",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Human 3",
+            "type": "HumanShip",
+            "x": "67.12358390374146",
+            "y": "545.8904479879676",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Alien 1LeftMissile",
+            "type": "AlienMissile",
+            "x": "256.6867225982472",
+            "y": "315.4553022310454",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1RightMissile",
+            "type": "AlienMissile",
+            "x": "238.47939304899506",
+            "y": "307.17924334502175",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1",
+            "type": "AlienShip",
+            "x": "245.51404310211518",
+            "y": "315.8691051753466",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 2LeftMissile",
+            "type": "AlienMissile",
+            "x": "328.293947855117",
+            "y": "326.7409330363329",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2RightMissile",
+            "type": "AlienMissile",
+            "x": "309.3202818941067",
+            "y": "320.4163777159961",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2",
+            "type": "AlienShip",
+            "x": "317.22597604452767",
+            "y": "328.32207186641705",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 3LeftMissile",
+            "type": "AlienMissile",
+            "x": "492.05262246998575",
+            "y": "301.7445651649735",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3RightMissile",
+            "type": "AlienMissile",
+            "x": "474.1640786499874",
+            "y": "310.68883707497264",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3",
+            "type": "AlienShip",
+            "x": "485.3444185374864",
+            "y": "310.68883707497264",
+            "r": "153.43494882292202"
+         }
+      ]
+      ,"debug_info":
+       {
+          "humanai": "MCTSAgent",
+          "alienai": "RandomBot",
+          "humanships": "3",
+          "alienships": "3",
+          "additionalInfo":
+          [
+             {
+                "info": "World Tick: 15"
+             },
+             {
+                "info": "Tick Processing Time (ms): 2"
+             }
+          ]
+       }
+   },
+   {
+      "tick": 16,
+      "object_state":
+      [
+         {
+            "id": "Human 1LeftMissile",
+            "type": "HumanMissile",
+            "x": "667.3101379774398",
+            "y": "512.3399333773265",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1RightMissile",
+            "type": "HumanMissile",
+            "x": "671.2324606802034",
+            "y": "531.9515468911449",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1",
+            "type": "HumanShip",
+            "x": "674.1742027072762",
+            "y": "521.1651594585447",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 2LeftMissile",
+            "type": "HumanMissile",
+            "x": "191.45416931978082",
+            "y": "321.36550253555026",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2RightMissile",
+            "type": "HumanMissile",
+            "x": "206.81859491172833",
+            "y": "308.5618145422606",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2",
+            "type": "HumanShip",
+            "x": "195.93546011743217",
+            "y": "311.1225521409186",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 3LeftMissile",
+            "type": "HumanMissile",
+            "x": "46.03767902357602",
+            "y": "553.3325320633201",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Human 3RightMissile",
+            "type": "HumanMissile",
+            "x": "48.518373715360184",
+            "y": "533.4869745290467",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Human 3",
+            "type": "HumanShip",
+            "x": "42.31663698589976",
+            "y": "542.7895796232374",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Alien 1LeftMissile",
+            "type": "AlienMissile",
+            "x": "246.34164899071754",
+            "y": "338.2144641676105",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1RightMissile",
+            "type": "AlienMissile",
+            "x": "228.13431944146546",
+            "y": "329.9384052815869",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1",
+            "type": "AlienShip",
+            "x": "235.16896949458558",
+            "y": "338.6282671119117",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 2LeftMissile",
+            "type": "AlienMissile",
+            "x": "320.388253704696",
+            "y": "350.45801548759573",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2RightMissile",
+            "type": "AlienMissile",
+            "x": "301.41458774368573",
+            "y": "344.13346016725893",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2",
+            "type": "AlienShip",
+            "x": "309.3202818941067",
+            "y": "352.0391543176799",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 3LeftMissile",
+            "type": "AlienMissile",
+            "x": "503.23296235748467",
+            "y": "324.1052449399714",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3RightMissile",
+            "type": "AlienMissile",
+            "x": "485.3444185374863",
+            "y": "333.04951684997053",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3",
+            "type": "AlienShip",
+            "x": "496.5247584249853",
+            "y": "333.04951684997053",
+            "r": "153.43494882292202"
+         }
+      ]
+      ,"debug_info":
+       {
+          "humanai": "MCTSAgent",
+          "alienai": "RandomBot",
+          "humanships": "3",
+          "alienships": "3",
+          "additionalInfo":
+          [
+             {
+                "info": "World Tick: 16"
+             },
+             {
+                "info": "Tick Processing Time (ms): 1"
+             }
+          ]
+       }
+   },
+   {
+      "tick": 17,
+      "object_state":
+      [
+         {
+            "id": "Human 1LeftMissile",
+            "type": "HumanMissile",
+            "x": "691.8246548697128",
+            "y": "507.4370299988718",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1RightMissile",
+            "type": "HumanMissile",
+            "x": "695.7469775724765",
+            "y": "527.0486435126902",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1",
+            "type": "HumanShip",
+            "x": "698.6887195995492",
+            "y": "516.2622560800901",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 2LeftMissile",
+            "type": "HumanMissile",
+            "x": "175.44955932816882",
+            "y": "302.15997054561586",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2RightMissile",
+            "type": "HumanMissile",
+            "x": "190.81398492011633",
+            "y": "289.3562825523262",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2",
+            "type": "HumanShip",
+            "x": "179.93085012582017",
+            "y": "291.9170201509842",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 3LeftMissile",
+            "type": "HumanMissile",
+            "x": "23.721042037676252",
+            "y": "550.5429524400827",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Human 3RightMissile",
+            "type": "HumanMissile",
+            "x": "26.201736729460425",
+            "y": "530.6973949058093",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Human 3",
+            "type": "HumanShip",
+            "x": "20.0",
+            "y": "540.0",
+            "r": "277.1250163489018"
+         },
+         {
+            "id": "Alien 1LeftMissile",
+            "type": "AlienMissile",
+            "x": "235.99657538318795",
+            "y": "360.97362610417565",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1RightMissile",
+            "type": "AlienMissile",
+            "x": "217.78924583393587",
+            "y": "352.697567218152",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1",
+            "type": "AlienShip",
+            "x": "224.82389588705598",
+            "y": "361.38742904847686",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 2LeftMissile",
+            "type": "AlienMissile",
+            "x": "312.48255955427504",
+            "y": "374.1750979388586",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2RightMissile",
+            "type": "AlienMissile",
+            "x": "293.50889359326476",
+            "y": "367.8505426185218",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2",
+            "type": "AlienShip",
+            "x": "301.41458774368573",
+            "y": "375.75623676894276",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 3LeftMissile",
+            "type": "AlienMissile",
+            "x": "514.4133022449836",
+            "y": "346.4659247149693",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3RightMissile",
+            "type": "AlienMissile",
+            "x": "496.52475842498524",
+            "y": "355.4101966249684",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3",
+            "type": "AlienShip",
+            "x": "507.7050983124842",
+            "y": "355.4101966249684",
+            "r": "153.43494882292202"
+         }
+      ]
+      ,"debug_info":
+       {
+          "humanai": "MCTSAgent",
+          "alienai": "RandomBot",
+          "humanships": "3",
+          "alienships": "3",
+          "additionalInfo":
+          [
+             {
+                "info": "World Tick: 17"
+             },
+             {
+                "info": "Tick Processing Time (ms): 0"
+             }
+          ]
+       }
+   },
+   {
+      "tick": 18,
+      "object_state":
+      [
+         {
+            "id": "Human 1LeftMissile",
+            "type": "HumanMissile",
+            "x": "716.3391717619858",
+            "y": "502.5341266204172",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1RightMissile",
+            "type": "HumanMissile",
+            "x": "720.2614944647495",
+            "y": "522.1457401342357",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1",
+            "type": "HumanShip",
+            "x": "723.2032364918223",
+            "y": "511.3593527016355",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 2LeftMissile",
+            "type": "HumanMissile",
+            "x": "159.44494933655682",
+            "y": "282.95443855568146",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2RightMissile",
+            "type": "HumanMissile",
+            "x": "174.80937492850433",
+            "y": "270.1507505623918",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2",
+            "type": "HumanShip",
+            "x": "163.92624013420817",
+            "y": "272.7114881610498",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 3LeftMissile",
+            "type": "HumanMissile",
+            "x": "18.91676514079409",
+            "y": "551.1277402126308",
+            "r": "302.1250163489018"
+         },
+         {
+            "id": "Human 3RightMissile",
+            "type": "HumanMissile",
+            "x": "29.552133085628206",
+            "y": "534.1899437597863",
+            "r": "302.1250163489018"
+         },
+         {
+            "id": "Human 3",
+            "type": "HumanShip",
+            "x": "20.0",
+            "y": "540.0",
+            "r": "302.1250163489018"
+         },
+         {
+            "id": "Alien 1LeftMissile",
+            "type": "AlienMissile",
+            "x": "225.65150177565835",
+            "y": "383.7327880407408",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1RightMissile",
+            "type": "AlienMissile",
+            "x": "207.44417222640627",
+            "y": "375.45672915471715",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1",
+            "type": "AlienShip",
+            "x": "214.47882227952638",
+            "y": "384.146590985042",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 2LeftMissile",
+            "type": "AlienMissile",
+            "x": "311.0679718105893",
+            "y": "378.41886116991583",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2RightMissile",
+            "type": "AlienMissile",
+            "x": "292.09430584957903",
+            "y": "372.09430584957903",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 2",
+            "type": "AlienShip",
+            "x": "300.0",
+            "y": "380.0",
+            "r": "198.43494882292202"
+         },
+         {
+            "id": "Alien 3LeftMissile",
+            "type": "AlienMissile",
+            "x": "525.5936421324825",
+            "y": "368.82660448996717",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3RightMissile",
+            "type": "AlienMissile",
+            "x": "507.70509831248415",
+            "y": "377.7708763999663",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3",
+            "type": "AlienShip",
+            "x": "518.8854381999831",
+            "y": "377.7708763999663",
+            "r": "153.43494882292202"
+         }
+      ]
+      ,"debug_info":
+       {
+          "humanai": "MCTSAgent",
+          "alienai": "RandomBot",
+          "humanships": "3",
+          "alienships": "3",
+          "additionalInfo":
+          [
+             {
+                "info": "World Tick: 18"
+             },
+             {
+                "info": "Tick Processing Time (ms): 260062"
+             }
+          ]
+       }
+   },
+   {
+      "tick": 19,
+      "object_state":
+      [
+         {
+            "id": "Human 1LeftMissile",
+            "type": "HumanMissile",
+            "x": "740.8536886542589",
+            "y": "497.63122324196263",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1RightMissile",
+            "type": "HumanMissile",
+            "x": "744.7760113570225",
+            "y": "517.242836755781",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1",
+            "type": "HumanShip",
+            "x": "747.7177533840953",
+            "y": "506.4564493231809",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 2LeftMissile",
+            "type": "HumanMissile",
+            "x": "143.44033934494482",
+            "y": "263.74890656574706",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2RightMissile",
+            "type": "HumanMissile",
+            "x": "158.80476493689233",
+            "y": "250.94521857245743",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2",
+            "type": "HumanShip",
+            "x": "147.92163014259617",
+            "y": "253.50595617111537",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 3LeftMissile",
+            "type": "HumanMissile",
+            "x": "14.315469586148012",
+            "y": "549.6273627735736",
+            "r": "327.1250163489018"
+         },
+         {
+            "id": "Human 3RightMissile",
+            "type": "HumanMissile",
+            "x": "31.112608467170116",
+            "y": "538.7712066669374",
+            "r": "327.1250163489018"
+         },
+         {
+            "id": "Human 3",
+            "type": "HumanShip",
+            "x": "20.0",
+            "y": "540.0",
+            "r": "327.1250163489018"
+         },
+         {
+            "id": "Alien 1LeftMissile",
+            "type": "AlienMissile",
+            "x": "215.30642816812875",
+            "y": "406.4919499773059",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1RightMissile",
+            "type": "AlienMissile",
+            "x": "197.09909861887667",
+            "y": "398.2158910912823",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1",
+            "type": "AlienShip",
+            "x": "204.13374867199678",
+            "y": "406.90575292160713",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 2LeftMissile",
+            "type": "AlienMissile",
+            "x": "310.7863874326001",
+            "y": "377.05825797292727",
+            "r": "191.30993247402023"
+         },
+         {
+            "id": "Alien 2RightMissile",
+            "type": "AlienMissile",
+            "x": "291.17477391878174",
+            "y": "373.13593527016354",
+            "r": "191.30993247402023"
+         },
+         {
+            "id": "Alien 2",
+            "type": "AlienShip",
+            "x": "300.0",
+            "y": "380.0",
+            "r": "191.30993247402023"
+         },
+         {
+            "id": "Alien 3LeftMissile",
+            "type": "AlienMissile",
+            "x": "536.7739820199814",
+            "y": "391.18728426496506",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3RightMissile",
+            "type": "AlienMissile",
+            "x": "518.8854381999831",
+            "y": "400.1315561749642",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3",
+            "type": "AlienShip",
+            "x": "530.065778087482",
+            "y": "400.1315561749642",
+            "r": "153.43494882292202"
+         }
+      ]
+      ,"debug_info":
+       {
+          "humanai": "MCTSAgent",
+          "alienai": "RandomBot",
+          "humanships": "3",
+          "alienships": "3",
+          "additionalInfo":
+          [
+             {
+                "info": "World Tick: 19"
+             },
+             {
+                "info": "Tick Processing Time (ms): 1"
+             }
+          ]
+       }
+   },
+   {
+      "tick": 20,
+      "object_state":
+      [
+         {
+            "id": "missile1",
+            "type": "AlienMissile",
+            "x": "291.17477391878174",
+            "y": "373.13593527016354",
+            "r": "191.30993247402023"
+         },
+         {
+            "id": "Human 1LeftMissile",
+            "type": "HumanMissile",
+            "x": "765.368205546532",
+            "y": "492.7283198635081",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1RightMissile",
+            "type": "HumanMissile",
+            "x": "769.2905282492956",
+            "y": "512.3399333773265",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1",
+            "type": "HumanShip",
+            "x": "772.2322702763684",
+            "y": "501.55354594472635",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 2LeftMissile",
+            "type": "HumanMissile",
+            "x": "127.43572935333283",
+            "y": "244.54337457581266",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2RightMissile",
+            "type": "HumanMissile",
+            "x": "142.80015494528033",
+            "y": "231.73968658252303",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2",
+            "type": "HumanShip",
+            "x": "131.91702015098417",
+            "y": "234.30042418118097",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 3LeftMissile",
+            "type": "HumanMissile",
+            "x": "10.779366499764462",
+            "y": "546.3229674880023",
+            "r": "352.1250163489018"
+         },
+         {
+            "id": "Human 3RightMissile",
+            "type": "HumanMissile",
+            "x": "30.590754090543165",
+            "y": "543.582726307387",
+            "r": "352.1250163489018"
+         },
+         {
+            "id": "Human 3",
+            "type": "HumanShip",
+            "x": "20.0",
+            "y": "540.0",
+            "r": "352.1250163489018"
+         },
+         {
+            "id": "Alien 1LeftMissile",
+            "type": "AlienMissile",
+            "x": "204.96135456059915",
+            "y": "429.25111191387106",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1RightMissile",
+            "type": "AlienMissile",
+            "x": "186.75402501134707",
+            "y": "420.9750530278474",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1",
+            "type": "AlienShip",
+            "x": "193.78867506446718",
+            "y": "429.66491485817227",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 2LeftMissile",
+            "type": "AlienMissile",
+            "x": "310.7863874326001",
+            "y": "377.05825797292727",
+            "r": "191.30993247402023"
+         },
+         {
+            "id": "Alien 2",
+            "type": "AlienShip",
+            "x": "300.0",
+            "y": "380.0",
+            "r": "191.30993247402023"
+         },
+         {
+            "id": "Alien 3LeftMissile",
+            "type": "AlienMissile",
+            "x": "546.7082039324994",
+            "y": "411.05572809000085",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3RightMissile",
+            "type": "AlienMissile",
+            "x": "528.8196601125011",
+            "y": "420.0",
+            "r": "153.43494882292202"
+         },
+         {
+            "id": "Alien 3",
+            "type": "AlienShip",
+            "x": "540.0",
+            "y": "420.0",
+            "r": "153.43494882292202"
+         }
+      ],
+      "actions":
+      [
+         {
+            "type": "firealienmissile",
+            "id": "Alien 2",
+            "x": "300.0",
+            "y": "380.0",
+            "text": "None"
+         }
+      ]
+      ,"debug_info":
+       {
+          "humanai": "MCTSAgent",
+          "alienai": "RandomBot",
+          "humanships": "3",
+          "alienships": "3",
+          "additionalInfo":
+          [
+             {
+                "info": "World Tick: 20"
+             },
+             {
+                "info": "Tick Processing Time (ms): 0"
+             }
+          ]
+       }
+   },
+   {
+      "tick": 21,
+      "object_state":
+      [
+         {
+            "id": "missile1",
+            "type": "AlienMissile",
+            "x": "284.3107091889453",
+            "y": "407.45625891934577",
+            "r": "191.30993247402023"
+         },
+         {
+            "id": "Human 1LeftMissile",
+            "type": "HumanMissile",
+            "x": "773.1359352701636",
+            "y": "491.17477391878174",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1RightMissile",
+            "type": "HumanMissile",
+            "x": "777.0582579729272",
+            "y": "510.7863874326001",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 1",
+            "type": "HumanShip",
+            "x": "780.0",
+            "y": "500.0",
+            "r": "438.6900675259798"
+         },
+         {
+            "id": "Human 2LeftMissile",
+            "type": "HumanMissile",
+            "x": "111.43111936172083",
+            "y": "225.33784258587826",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2RightMissile",
+            "type": "HumanMissile",
+            "x": "126.79554495366833",
+            "y": "212.53415459258864",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2",
+            "type": "HumanShip",
+            "x": "115.91241015937217",
+            "y": "215.09489219124657",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 3LeftMissile",
+            "type": "HumanMissile",
+            "x": "11.915642661471074",
+            "y": "547.7228988354746",
+            "r": "-17.125016348901795"
+         },
+         {
+            "id": "Human 3RightMissile",
+            "type": "HumanMissile",
+            "x": "31.028933471496963",
+            "y": "541.8337465695384",
+            "r": "-17.125016348901795"
+         },
+         {
+            "id": "Human 3",
+            "type": "HumanShip",
+            "x": "20.0",
+            "y": "540.0",
+            "r": "-17.125016348901795"
+         },
+         {
+            "id": "Alien 1LeftMissile",
+            "type": "AlienMissile",
+            "x": "194.61628095306952",
+            "y": "452.0102738504362",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1RightMissile",
+            "type": "AlienMissile",
+            "x": "176.40895140381744",
+            "y": "443.73421496441256",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1",
+            "type": "AlienShip",
+            "x": "183.44360145693756",
+            "y": "452.4240767947374",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 2LeftMissile",
+            "type": "AlienMissile",
+            "x": "311.0190208261308",
+            "y": "381.89240060063815",
+            "r": "216.30993247402023"
+         },
+         {
+            "id": "Alien 2",
+            "type": "AlienShip",
+            "x": "300.0",
+            "y": "380.0",
+            "r": "216.30993247402023"
+         },
+         {
+            "id": "Alien 3LeftMissile",
+            "type": "AlienMissile",
+            "x": "549.8597101081941",
+            "y": "414.7287462039496",
+            "r": "178.43494882292202"
+         },
+         {
+            "id": "Alien 3RightMissile",
+            "type": "AlienMissile",
+            "x": "529.8671708982432",
+            "y": "415.27498419107496",
+            "r": "178.43494882292202"
+         },
+         {
+            "id": "Alien 3",
+            "type": "AlienShip",
+            "x": "540.0",
+            "y": "420.0",
+            "r": "178.43494882292202"
+         }
+      ]
+      ,"debug_info":
+       {
+          "humanai": "MCTSAgent",
+          "alienai": "RandomBot",
+          "humanships": "3",
+          "alienships": "3",
+          "additionalInfo":
+          [
+             {
+                "info": "World Tick: 21"
+             },
+             {
+                "info": "Tick Processing Time (ms): 2"
+             }
+          ]
+       }
+   },
+   {
+      "tick": 22,
+      "object_state":
+      [
+         {
+            "id": "missile1",
+            "type": "AlienMissile",
+            "x": "277.4466444591088",
+            "y": "441.776582568528",
+            "r": "191.30993247402023"
+         },
+         {
+            "id": "Human 1LeftMissile",
+            "type": "HumanMissile",
+            "x": "770.0493429787125",
+            "y": "494.902507984832",
+            "r": "413.6900675259798"
+         },
+         {
+            "id": "Human 1RightMissile",
+            "type": "HumanMissile",
+            "x": "781.8924006006382",
+            "y": "511.0190208261308",
+            "r": "413.6900675259798"
+         },
+         {
+            "id": "Human 1",
+            "type": "HumanShip",
+            "x": "780.0",
+            "y": "500.0",
+            "r": "413.6900675259798"
+         },
+         {
+            "id": "Human 2LeftMissile",
+            "type": "HumanMissile",
+            "x": "95.42650937010883",
+            "y": "206.13231059594386",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2RightMissile",
+            "type": "HumanMissile",
+            "x": "110.79093496205633",
+            "y": "193.32862260265424",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2",
+            "type": "HumanShip",
+            "x": "99.90780016776017",
+            "y": "195.88936020131217",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 3LeftMissile",
+            "type": "HumanMissile",
+            "x": "9.409245909456839",
+            "y": "543.582726307387",
+            "r": "7.874983651098205"
+         },
+         {
+            "id": "Human 3RightMissile",
+            "type": "HumanMissile",
+            "x": "29.220633500235543",
+            "y": "546.3229674880023",
+            "r": "7.874983651098205"
+         },
+         {
+            "id": "Human 3",
+            "type": "HumanShip",
+            "x": "20.0",
+            "y": "540.0",
+            "r": "7.874983651098205"
+         },
+         {
+            "id": "Alien 1LeftMissile",
+            "type": "AlienMissile",
+            "x": "191.17267949613196",
+            "y": "459.5861970556988",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1RightMissile",
+            "type": "AlienMissile",
+            "x": "172.96534994687988",
+            "y": "451.31013816967516",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 1",
+            "type": "AlienShip",
+            "x": "180.0",
+            "y": "460.0",
+            "r": "204.44395478041653"
+         },
+         {
+            "id": "Alien 2LeftMissile",
+            "type": "AlienMissile",
+            "x": "309.1868613278826",
+            "y": "386.3719368281752",
+            "r": "241.30993247402023"
+         },
+         {
+            "id": "Alien 2",
+            "type": "AlienShip",
+            "x": "300.0",
+            "y": "380.0",
+            "r": "241.30993247402023"
+         },
+         {
+            "id": "Alien 3LeftMissile",
+            "type": "AlienMissile",
+            "x": "551.1636601654611",
+            "y": "419.3895151843852",
+            "r": "203.43494882292202"
+         },
+         {
+            "id": "Alien 3RightMissile",
+            "type": "AlienMissile",
+            "x": "532.8134160482315",
+            "y": "411.43536275699995",
+            "r": "203.43494882292202"
+         },
+         {
+            "id": "Alien 3",
+            "type": "AlienShip",
+            "x": "540.0",
+            "y": "420.0",
+            "r": "203.43494882292202"
+         }
+      ]
+      ,"debug_info":
+       {
+          "humanai": "MCTSAgent",
+          "alienai": "RandomBot",
+          "humanships": "3",
+          "alienships": "3",
+          "additionalInfo":
+          [
+             {
+                "info": "World Tick: 22"
+             },
+             {
+                "info": "Tick Processing Time (ms): 257048"
+             }
+          ]
+       }
+   },
+   {
+      "tick": 23,
+      "object_state":
+      [
+         {
+            "id": "missile1",
+            "type": "AlienMissile",
+            "x": "270.58257972927237",
+            "y": "476.0969062177102",
+            "r": "191.30993247402023"
+         },
+         {
+            "id": "Human 1LeftMissile",
+            "type": "HumanMissile",
+            "x": "768.8273488407888",
+            "y": "499.5854326658106",
+            "r": "388.6900675259798"
+         },
+         {
+            "id": "Human 1RightMissile",
+            "type": "HumanMissile",
+            "x": "786.3719368281752",
+            "y": "509.18686132788264",
+            "r": "388.6900675259798"
+         },
+         {
+            "id": "Human 1",
+            "type": "HumanShip",
+            "x": "780.0",
+            "y": "500.0",
+            "r": "388.6900675259798"
+         },
+         {
+            "id": "Human 2LeftMissile",
+            "type": "HumanMissile",
+            "x": "79.42189937849683",
+            "y": "186.92677860600946",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2RightMissile",
+            "type": "HumanMissile",
+            "x": "94.78632497044433",
+            "y": "174.12309061271984",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2",
+            "type": "HumanShip",
+            "x": "83.90319017614817",
+            "y": "176.68382821137777",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 3LeftMissile",
+            "type": "HumanMissile",
+            "x": "9.573571693057156",
+            "y": "535.9639632360221",
+            "r": "407.7263109939063"
+         },
+         {
+            "id": "Human 3RightMissile",
+            "type": "HumanMissile",
+            "x": "23.027027572983407",
+            "y": "550.762764703941",
+            "r": "407.7263109939063"
+         },
+         {
+            "id": "Human 3",
+            "type": "HumanShip",
+            "x": "20.0",
+            "y": "540.0",
+            "r": "407.7263109939063"
+         },
+         {
+            "id": "Alien 1LeftMissile",
+            "type": "AlienMissile",
+            "x": "189.95100574838537",
+            "y": "454.90318878163987",
+            "r": "179.44395478041653"
+         },
+         {
+            "id": "Alien 1RightMissile",
+            "type": "AlienMissile",
+            "x": "169.9519475762807",
+            "y": "455.0972821323078",
+            "r": "179.44395478041653"
+         },
+         {
+            "id": "Alien 1",
+            "type": "AlienShip",
+            "x": "180.0",
+            "y": "460.0",
+            "r": "179.44395478041653"
+         },
+         {
+            "id": "Alien 2LeftMissile",
+            "type": "AlienMissile",
+            "x": "305.6332270936409",
+            "y": "389.65747133112336",
+            "r": "266.30993247402023"
+         },
+         {
+            "id": "Alien 2",
+            "type": "AlienShip",
+            "x": "300.0",
+            "y": "380.0",
+            "r": "266.30993247402023"
+         },
+         {
+            "id": "Alien 3LeftMissile",
+            "type": "AlienMissile",
+            "x": "550.3757141713825",
+            "y": "424.16467951153174",
+            "r": "228.43494882292202"
+         },
+         {
+            "id": "Alien 3RightMissile",
+            "type": "AlienMissile",
+            "x": "537.1063151063959",
+            "y": "409.20062095597495",
+            "r": "228.43494882292202"
+         },
+         {
+            "id": "Alien 3",
+            "type": "AlienShip",
+            "x": "540.0",
+            "y": "420.0",
+            "r": "228.43494882292202"
+         }
+      ]
+      ,"debug_info":
+       {
+          "humanai": "MCTSAgent",
+          "alienai": "RandomBot",
+          "humanships": "3",
+          "alienships": "3",
+          "additionalInfo":
+          [
+             {
+                "info": "World Tick: 23"
+             },
+             {
+                "info": "Tick Processing Time (ms): 1"
+             }
+          ]
+       }
+   },
+   {
+      "tick": 24,
+      "object_state":
+      [
+         {
+            "id": "laser1",
+            "type": "HumanLaser",
+            "x": "34.79880146791888",
+            "y": "526.5465441200738",
+            "r": "407.7263109939063"
+         },
+         {
+            "id": "missile1",
+            "type": "AlienMissile",
+            "x": "263.7185149994359",
+            "y": "510.41722986689246",
+            "r": "191.30993247402023"
+         },
+         {
+            "id": "Human 1LeftMissile",
+            "type": "HumanMissile",
+            "x": "769.6989355264133",
+            "y": "504.3460408087141",
+            "r": "363.6900675259798"
+         },
+         {
+            "id": "Human 1RightMissile",
+            "type": "HumanMissile",
+            "x": "789.6574713311234",
+            "y": "505.6332270936409",
+            "r": "363.6900675259798"
+         },
+         {
+            "id": "Human 1",
+            "type": "HumanShip",
+            "x": "780.0",
+            "y": "500.0",
+            "r": "363.6900675259798"
+         },
+         {
+            "id": "Human 2LeftMissile",
+            "type": "HumanMissile",
+            "x": "63.41728938688483",
+            "y": "167.72124661607506",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2RightMissile",
+            "type": "HumanMissile",
+            "x": "78.78171497883233",
+            "y": "154.91755862278544",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2",
+            "type": "HumanShip",
+            "x": "67.89858018453617",
+            "y": "157.47829622144337",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 3LeftMissile",
+            "type": "HumanMissile",
+            "x": "9.573571693057156",
+            "y": "535.9639632360221",
+            "r": "407.7263109939063"
+         },
+         {
+            "id": "Human 3RightMissile",
+            "type": "HumanMissile",
+            "x": "23.027027572983407",
+            "y": "550.762764703941",
+            "r": "407.7263109939063"
+         },
+         {
+            "id": "Human 3",
+            "type": "HumanShip",
+            "x": "20.0",
+            "y": "540.0",
+            "r": "407.7263109939063"
+         },
+         {
+            "id": "Alien 1LeftMissile",
+            "type": "AlienMissile",
+            "x": "186.86466850108428",
+            "y": "451.1752435517902",
+            "r": "154.44395478041653"
+         },
+         {
+            "id": "Alien 1RightMissile",
+            "type": "AlienMissile",
+            "x": "168.82139374078156",
+            "y": "459.8031190680585",
+            "r": "154.44395478041653"
+         },
+         {
+            "id": "Alien 1",
+            "type": "AlienShip",
+            "x": "180.0",
+            "y": "460.0",
+            "r": "154.44395478041653"
+         },
+         {
+            "id": "Alien 2LeftMissile",
+            "type": "AlienMissile",
+            "x": "301.0240138343426",
+            "y": "391.13334611278543",
+            "r": "291.30993247402023"
+         },
+         {
+            "id": "Alien 2",
+            "type": "AlienShip",
+            "x": "300.0",
+            "y": "380.0",
+            "r": "291.30993247402023"
+         },
+         {
+            "id": "Alien 3LeftMissile",
+            "type": "AlienMissile",
+            "x": "547.27606875109",
+            "y": "428.48874687627165",
+            "r": "255.96375653207352"
+         },
+         {
+            "id": "Alien 3RightMissile",
+            "type": "AlienMissile",
+            "x": "542.4253562503633",
+            "y": "409.085896873365",
+            "r": "255.96375653207352"
+         },
+         {
+            "id": "Alien 3",
+            "type": "AlienShip",
+            "x": "540.0",
+            "y": "420.0",
+            "r": "255.96375653207352"
+         }
+      ]
+      ,"debug_info":
+       {
+          "humanai": "MCTSAgent",
+          "alienai": "RandomBot",
+          "humanships": "3",
+          "alienships": "3",
+          "additionalInfo":
+          [
+             {
+                "info": "World Tick: 24"
+             },
+             {
+                "info": "Tick Processing Time (ms): 1"
+             }
+          ]
+       }
+   },
+   {
+      "tick": 25,
+      "object_state":
+      [
+         {
+            "id": "laser1",
+            "type": "HumanLaser",
+            "x": "90.29430697261466",
+            "y": "476.0960845703504",
+            "r": "407.7263109939063"
+         },
+         {
+            "id": "missile1",
+            "type": "AlienMissile",
+            "x": "256.85445026959945",
+            "y": "544.7375535160746",
+            "r": "191.30993247402023"
+         },
+         {
+            "id": "Human 1LeftMissile",
+            "type": "HumanMissile",
+            "x": "772.5007812648546",
+            "y": "508.2922685896228",
+            "r": "338.6900675259798"
+         },
+         {
+            "id": "Human 1RightMissile",
+            "type": "HumanMissile",
+            "x": "791.1333461127855",
+            "y": "501.0240138343426",
+            "r": "338.6900675259798"
+         },
+         {
+            "id": "Human 1",
+            "type": "HumanShip",
+            "x": "780.0",
+            "y": "500.0",
+            "r": "338.6900675259798"
+         },
+         {
+            "id": "Human 2LeftMissile",
+            "type": "HumanMissile",
+            "x": "47.41267939527283",
+            "y": "148.51571462614066",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2RightMissile",
+            "type": "HumanMissile",
+            "x": "62.777104987220326",
+            "y": "135.71202663285104",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2",
+            "type": "HumanShip",
+            "x": "51.89397019292417",
+            "y": "138.27276423150897",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 3LeftMissile",
+            "type": "HumanMissile",
+            "x": "21.80512224973419",
+            "y": "551.0336545923603",
+            "r": "-72.72631099390628"
+         },
+         {
+            "id": "Human 3RightMissile",
+            "type": "HumanMissile",
+            "x": "27.743850324047763",
+            "y": "531.9357094447964",
+            "r": "-72.72631099390628"
+         },
+         {
+            "id": "Human 3",
+            "type": "HumanShip",
+            "x": "20.0",
+            "y": "540.0",
+            "r": "-72.72631099390628"
+         },
+         {
+            "id": "Alien 1LeftMissile",
+            "type": "AlienMissile",
+            "x": "182.4919992875304",
+            "y": "449.1009202429312",
+            "r": "129.44395478041653"
+         },
+         {
+            "id": "Alien 1RightMissile",
+            "type": "AlienMissile",
+            "x": "169.78553662182668",
+            "y": "464.54584842421696",
+            "r": "129.44395478041653"
+         },
+         {
+            "id": "Alien 1",
+            "type": "AlienShip",
+            "x": "180.0",
+            "y": "460.0",
+            "r": "129.44395478041653"
+         },
+         {
+            "id": "Alien 2LeftMissile",
+            "type": "AlienMissile",
+            "x": "296.222916330555",
+            "y": "390.52300522445995",
+            "r": "316.30993247402023"
+         },
+         {
+            "id": "Alien 2",
+            "type": "AlienShip",
+            "x": "300.0",
+            "y": "380.0",
+            "r": "316.30993247402023"
+         },
+         {
+            "id": "Alien 3LeftMissile",
+            "type": "AlienMissile",
+            "x": "523.0225062474567",
+            "y": "434.55213750217996",
+            "r": "255.96375653207352"
+         },
+         {
+            "id": "Alien 3RightMissile",
+            "type": "AlienMissile",
+            "x": "518.17179374673",
+            "y": "415.1492874992733",
+            "r": "255.96375653207352"
+         },
+         {
+            "id": "Alien 3",
+            "type": "AlienShip",
+            "x": "515.7464374963668",
+            "y": "426.0633906259083",
+            "r": "255.96375653207352"
+         }
+      ]
+      ,"debug_info":
+       {
+          "humanai": "MCTSAgent",
+          "alienai": "RandomBot",
+          "humanships": "3",
+          "alienships": "3",
+          "additionalInfo":
+          [
+             {
+                "info": "World Tick: 25"
+             },
+             {
+                "info": "Tick Processing Time (ms): 289444"
+             }
+          ]
+       }
+   },
+   {
+      "tick": 26,
+      "object_state":
+      [
+         {
+            "id": "laser1",
+            "type": "HumanLaser",
+            "x": "145.78981247731045",
+            "y": "425.645625020627",
+            "r": "407.7263109939063"
+         },
+         {
+            "id": "missile1",
+            "type": "AlienMissile",
+            "x": "249.990385539763",
+            "y": "579.0578771652569",
+            "r": "191.30993247402023"
+         },
+         {
+            "id": "Human 1LeftMissile",
+            "type": "HumanMissile",
+            "x": "780.4138029443012",
+            "y": "511.172679496132",
+            "r": "294.44395478041656"
+         },
+         {
+            "id": "Human 1RightMissile",
+            "type": "HumanMissile",
+            "x": "788.6898618303248",
+            "y": "492.9653499468799",
+            "r": "294.44395478041656"
+         },
+         {
+            "id": "Human 1",
+            "type": "HumanShip",
+            "x": "780.0",
+            "y": "500.0",
+            "r": "294.44395478041656"
+         },
+         {
+            "id": "Human 2LeftMissile",
+            "type": "HumanMissile",
+            "x": "31.408069403660825",
+            "y": "129.31018263620626",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2RightMissile",
+            "type": "HumanMissile",
+            "x": "46.77249499560832",
+            "y": "116.50649464291665",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2",
+            "type": "HumanShip",
+            "x": "35.889360201312165",
+            "y": "119.06723224157459",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 3LeftMissile",
+            "type": "HumanMissile",
+            "x": "16.972972427016597",
+            "y": "550.762764703941",
+            "r": "-47.72631099390628"
+         },
+         {
+            "id": "Human 3RightMissile",
+            "type": "HumanMissile",
+            "x": "30.426428306942842",
+            "y": "535.9639632360221",
+            "r": "-47.72631099390628"
+         },
+         {
+            "id": "Human 3",
+            "type": "HumanShip",
+            "x": "20.0",
+            "y": "540.0",
+            "r": "-47.72631099390628"
+         },
+         {
+            "id": "Alien 1LeftMissile",
+            "type": "AlienMissile",
+            "x": "177.65236821807292",
+            "y": "449.0689147374798",
+            "r": "104.44395478041653"
+         },
+         {
+            "id": "Alien 1RightMissile",
+            "type": "AlienMissile",
+            "x": "172.6637108591401",
+            "y": "468.43675658305375",
+            "r": "104.44395478041653"
+         },
+         {
+            "id": "Alien 1",
+            "type": "AlienShip",
+            "x": "180.0",
+            "y": "460.0",
+            "r": "104.44395478041653"
+         },
+         {
+            "id": "Alien 2LeftMissile",
+            "type": "AlienMissile",
+            "x": "292.1295854818435",
+            "y": "387.9408170431254",
+            "r": "341.30993247402023"
+         },
+         {
+            "id": "Alien 2",
+            "type": "AlienShip",
+            "x": "300.0",
+            "y": "380.0",
+            "r": "341.30993247402023"
+         },
+         {
+            "id": "Alien 3LeftMissile",
+            "type": "AlienMissile",
+            "x": "498.76894374382346",
+            "y": "440.6155281280883",
+            "r": "255.96375653207352"
+         },
+         {
+            "id": "Alien 3RightMissile",
+            "type": "AlienMissile",
+            "x": "493.9182312430968",
+            "y": "421.21267812518164",
+            "r": "255.96375653207352"
+         },
+         {
+            "id": "Alien 3",
+            "type": "AlienShip",
+            "x": "491.49287499273345",
+            "y": "432.1267812518166",
+            "r": "255.96375653207352"
+         }
+      ]
+      ,"debug_info":
+       {
+          "humanai": "MCTSAgent",
+          "alienai": "RandomBot",
+          "humanships": "3",
+          "alienships": "3",
+          "additionalInfo":
+          [
+             {
+                "info": "World Tick: 26"
+             },
+             {
+                "info": "Tick Processing Time (ms): 1"
+             }
+          ]
+       }
+   },
+   {
+      "tick": 27,
+      "object_state":
+      [
+         {
+            "id": "laser1",
+            "type": "HumanLaser",
+            "x": "201.28531798200623",
+            "y": "375.1951654709036",
+            "r": "407.7263109939063"
+         },
+         {
+            "id": "laser2",
+            "type": "HumanLaser",
+            "x": "761.7926704507479",
+            "y": "491.7239411139763",
+            "r": "294.44395478041656"
+         },
+         {
+            "id": "Human 1LeftMissile",
+            "type": "HumanMissile",
+            "x": "780.4138029443012",
+            "y": "511.172679496132",
+            "r": "294.44395478041656"
+         },
+         {
+            "id": "Human 1RightMissile",
+            "type": "HumanMissile",
+            "x": "788.6898618303248",
+            "y": "492.9653499468799",
+            "r": "294.44395478041656"
+         },
+         {
+            "id": "Human 1",
+            "type": "HumanShip",
+            "x": "780.0",
+            "y": "500.0",
+            "r": "294.44395478041656"
+         },
+         {
+            "id": "Human 2LeftMissile",
+            "type": "HumanMissile",
+            "x": "15.518709202348658",
+            "y": "110.24295039463169",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2RightMissile",
+            "type": "HumanMissile",
+            "x": "30.883134794296154",
+            "y": "97.43926240134206",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 2",
+            "type": "HumanShip",
+            "x": "20.0",
+            "y": "100.0",
+            "r": "320.19442890773473"
+         },
+         {
+            "id": "Human 3LeftMissile",
+            "type": "HumanMissile",
+            "x": "12.70804042832679",
+            "y": "548.4751003300895",
+            "r": "-22.72631099390628"
+         },
+         {
+            "id": "Human 3RightMissile",
+            "type": "HumanMissile",
+            "x": "31.15525600707554",
+            "y": "540.7485074592848",
+            "r": "-22.72631099390628"
+         },
+         {
+            "id": "Human 3",
+            "type": "HumanShip",
+            "x": "20.0",
+            "y": "540.0",
+            "r": "-22.72631099390628"
+         },
+         {
+            "id": "Alien 1LeftMissile",
+            "type": "AlienMissile",
+            "x": "173.2526467823591",
+            "y": "451.08522436870163",
+            "r": "79.44395478041653"
+         },
+         {
+            "id": "Alien 1RightMissile",
+            "type": "AlienMissile",
+            "x": "176.91659142554585",
+            "y": "470.7467479528917",
+            "r": "79.44395478041653"
+         },
+         {
+            "id": "Alien 1",
+            "type": "AlienShip",
+            "x": "180.0",
+            "y": "460.0",
+            "r": "79.44395478041653"
+         },
+         {
+            "id": "Alien 2LeftMissile",
+            "type": "AlienMissile",
+            "x": "289.3140658251518",
+            "y": "383.28797974610717",
+            "r": "369.4623222080256"
+         },
+         {
+            "id": "Alien 2",
+            "type": "AlienShip",
+            "x": "300.0",
+            "y": "380.0",
+            "r": "369.4623222080256"
+         },
+         {
+            "id": "Alien 3LeftMissile",
+            "type": "AlienMissile",
+            "x": "474.51538124019015",
+            "y": "446.6789187539966",
+            "r": "255.96375653207352"
+         },
+         {
+            "id": "Alien 3RightMissile",
+            "type": "AlienMissile",
+            "x": "469.6646687394635",
+            "y": "427.27606875108995",
+            "r": "255.96375653207352"
+         },
+         {
+            "id": "Alien 3",
+            "type": "AlienShip",
+            "x": "467.23931248910014",
+            "y": "438.19017187772494",
+            "r": "255.96375653207352"
+         }
+      ]
+      ,"debug_info":
+       {
+          "humanai": "MCTSAgent",
+          "alienai": "RandomBot",
+          "humanships": "3",
+          "alienships": "3",
+          "additionalInfo":
+          [
+             {
+                "info": "World Tick: 27"
+             },
+             {
+                "info": "Tick Processing Time (ms): 0"
+             }
           ]
        }
    }

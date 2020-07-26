@@ -27,7 +27,7 @@ class Agent:
         self.rewards = []               # All accumulated rewards
         self.reward_policy = {
             ScorableAction.Kamikaze: -6,
-            ScorableAction.TeamLost: - 4,
+            ScorableAction.TeamLost: -4,
             ScorableAction.Died: -1,
             ScorableAction.HitByLaser: -0.33,
             ScorableAction.FriendlyFire: -4,

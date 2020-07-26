@@ -14,8 +14,8 @@ import math
 class MCTSAgent(Agent):
     def __init__(self, team, name, position=Point(0, 0), bearing=0):                
         super().__init__(team, name, position, bearing, True)
-        self.num_rounds = 5000        # Number of random simulations so that we can find a good candidate move.
-        self.temperature = 5.0        # Larger number means more exploration of unvisited nodes, while lower numbers will stick to the best nodes found thus far
+        self.num_rounds = 30000       # Number of random simulations so that we can find a good candidate move.
+        self.temperature = 1          # Larger number means more exploration of unvisited nodes, while lower numbers will stick to the best nodes found thus far
         self.DEBUG = False
         self.DUMP = True        
 
