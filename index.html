@@ -180,6 +180,14 @@
 		// Display Message
 		displayMessage("Run Simulation to Begin");
 
+		// If we have a replay index set, change the simulation dropdown.
+		urlParams = new URLSearchParams(window.location.search);
+		replayParam = urlParams.get('replay');
+		if (replayParam) {
+			var simulation = document.getElementById('simulation');
+			simulation.selectedIndex = replayParam;
+		}
+
 		// Start the game loop		
 		app.ticker.add(delta => gameLoop(delta))	
 	}	
