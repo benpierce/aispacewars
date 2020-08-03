@@ -13,6 +13,21 @@ As both the term and project progressed, I quickly realized that I had inadverte
 
 Because of the enormous state-action space, I decided to use a modified Monte Carlo Tree Search which I hoped would result in each agent (ship) choosing statistically advantageous actions for the team. This document outlines each of the challenges faced, and how they were overcome. This document also highlights a few interesting simulations that can be viewed directly inside your web browser.
 
+# Simulation Code
+
+Much of the code is related to the simulation itself; however, key pieces of code can be found in the following files:
+
+* **mctsagent.py**: This contains the code specific to the Monte Carlo Tree Search and UCT algorithm and is inspired by the book “Deep Learning and the Game of Go” written by Max Pumperla and Kevin Ferguson.
+* **spacewars.py**: This is the main entry point into the simulation which can be run like this:
+
+```
+python spacewars.py
+```
+
+* **world.py**: Most of the simulation / physics take place here.
+* **gamestate.py**: The game state (which contains a copy of the world). This pattern was also inspired by “Deep Learning and the Game of Go”.
+* **agentbase.py**: This is the base class for both the Random and MCTS agent. The reward system is also defined in this class, as a constant.
+
 # A Harsh World
 
 Before discussing the various challenges associated with this particular multi-agent implementation, it is important to first understand the specific rules that govern this simulation. Nearly all the rules set forth are controlled through startup configuration; however, I will discuss only the final rules that made it into the simulation after numerous tuning iterations.
