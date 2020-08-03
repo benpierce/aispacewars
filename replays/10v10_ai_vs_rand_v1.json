@@ -428,7 +428,7 @@
        {
           "humanai": "MCTSAgent",
           "alienai": "RandomBot",
-          "description": "When tuning the rewards system, I often used 10v10 simulations to quickly see how well the Monte Carlo team performed. In this simulation, the Human ships do a good job at avoiding collisions early on; however, friendly fire is still a problem. At the end of the game, one of the Human agents determines that it will receive a larger reward the overwall win, despite the negative reward penalty for a kamikaze.",
+          "description": "When tuning the rewards system, I often used 10v10 simulations to quickly see how well the Monte Carlo team performed. In this simulation, the Human ships do a good job at avoiding collisions early on; however, friendly fire is still a problem. At the end of the game, one of the Human agents determines that it will receive a larger reward for the overall win, despite the negative reward penalty for a kamikaze.",
           "humanships": "10",
           "alienships": "10",
           "additionalInfo":

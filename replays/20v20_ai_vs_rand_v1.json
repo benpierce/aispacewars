@@ -848,7 +848,7 @@
        {
           "humanai": "MCTSAgent",
           "alienai": "RandomBot",
-          "description": "This is a full 20v20 battle between Monte Carlo agents (Human) and Random AI (Aliens). With a tuned reward system in place, agents effectively avoid kamikazes, friendly fire, and other dangerous moves. This simulation is typical of all the final simulations, in that the Monte Carlo team would normally win by a safe margin, despite some losses.",
+          "description": "This is a full 20v20 battle between Monte Carlo agents (Human) and Random AI (Aliens). With a tuned reward system in place, agents effectively avoid kamikazes, friendly fire, and other dangerous moves. This simulation is typical of all the final simulations, in that the Monte Carlo team would normally win by a safe margin, despite suffering some losses.",
           "humanships": "20",
           "alienships": "20",
           "additionalInfo":

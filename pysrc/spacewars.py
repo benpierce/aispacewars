@@ -12,7 +12,7 @@ def main():
     worldTick = 0
     humans = []
     aliens = []
-    for i in range(3):    
+    for i in range(20):    
         humans.append(mctsagent.MCTSAgent('Human', 'Human ' + str(i + 1)))
         aliens.append(naive.RandomBot('Alien', 'Alien ' + str(i + 1)))
         #aliens.append(mctsagent.MCTSAgent('Alien', 'Alien ' + str(i + 1)))
