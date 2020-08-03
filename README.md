@@ -18,6 +18,7 @@ Because of the enormous state-action space, I decided to use a modified Monte Ca
 Before discussing the various challenges associated with this particular multi-agent implementation, it is important to first understand the specific rules that govern this simulation. Nearly all the rules set forth are controlled through startup configuration; however, I will discuss only the final rules that made it into the simulation after numerous tuning iterations.
 
 ![A Harsh World](https://github.com/benpierce/aispacewars/blob/master/images/figure1.png)
+
 (*Figure 1.1 - A harsh intergalactic battleground*)
 
 ## Teams
@@ -61,6 +62,7 @@ Clearly the action-state space is far too large for a Monte Carlo Tree Search to
 To reduce the action-state space, the world was divided into a 20x15 grid and agents were coded to execution actions against coordinate approximations rather than discrete coordinates. Thus, 480,000 unique coordinates were then compressed into 300 approximate coordinates. 
 
 ![Gridworld](https://github.com/benpierce/aispacewars/blob/master/images/figure2.png)
+
 (*Figure 1.2 – Reduction of pixel coordinates to cell-based coordinates*)
 
 The new compressed branching factor thus changed to:
@@ -117,6 +119,7 @@ def uct_score(self, parent_rollouts, child_rollouts, avg_score, temperature):
 Based on the specific reward system used in this project, hyperparameter tuning of the temperature variable to *5.0* seemed to yield good results where most nodes were explored, but promising nodes were explored in much more detail. Below is a screenshot of some of the nodes explored during one agent's turn: as you can see the node MoveToCell(8,19) is explored 121 times because it has the **highest** average reward, whereas other nodes such as MoveToCell(8,18) and MoveToCell(8,20) are still explored, but less time is spent on them because they have a lower average reward yield.
 
 ![Exploration](https://github.com/benpierce/aispacewars/blob/master/images/figure3.png)
+
 (*Figure 1.3 – Monte Carlo exploration of the action space*)
 
 ## Lack of Overall Team Strategy
@@ -140,6 +143,7 @@ Below is a brief description of 7 simulations that had interesting elements.
 This is a full 20v20 battle between Monte Carlo agents (Human) and Random AI (Aliens). With a tuned reward system in place, agents effectively avoid kamikazes, friendly fire, and other dangerous moves. This simulation is typical of all the final simulations, in that the Monte Carlo team would normally win by a safe margin, despite suffering some losses.
 
 ![20v20](https://github.com/benpierce/aispacewars/blob/master/images/figure4.png)
+
 (*Figure 1.4 – A typical episode where the Monte Carlo team would win by a safe margin*)
 
 ## Game 2: 1v1 (Monte Carlo vs Random)
