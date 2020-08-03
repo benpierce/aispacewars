@@ -17,7 +17,7 @@ Because of the enormous state-action space, I decided to use a modified Monte Ca
 
 Much of the code is related to the simulation itself; however, key pieces of code can be found in the following files:
 
-* **mctsagent.py**: This contains the code specific to the Monte Carlo Tree Search and UCT algorithm and is inspired by the book “Deep Learning and the Game of Go” written by Max Pumperla and Kevin Ferguson.
+* **mctsagent.py**: This contains the code specific to the Monte Carlo Tree Search and UCT algorithm and is inspired by the book “*Deep Learning and the Game of Go*” written by Max Pumperla and Kevin Ferguson.
 * **spacewars.py**: This is the main entry point into the simulation which can be run like this:
 
 ```
@@ -25,7 +25,7 @@ python spacewars.py
 ```
 
 * **world.py**: Most of the simulation / physics take place here.
-* **gamestate.py**: The game state (which contains a copy of the world). This pattern was also inspired by “Deep Learning and the Game of Go”.
+* **gamestate.py**: The game state (which contains a copy of the world). This pattern was also inspired by “*Deep Learning and the Game of Go*”.
 * **agentbase.py**: This is the base class for both the Random and MCTS agent. The reward system is also defined in this class, as a constant.
 
 # A Harsh World
